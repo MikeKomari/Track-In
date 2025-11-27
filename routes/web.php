@@ -7,10 +7,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+// Route::get('/add-form/{id}', [ProductController::class, 'addForm'])->name('add-form');
+Route::get('/add-form', [ProductController::class, 'addForm'])->name('add-form');
 Route::get('/mike', function(){
   return view('components.modalTemp');
 });
 Route::get('/sideModal', function(){
   return view('components.sideModal');
 });
-Route::get('/product-form', [ProductController::class, 'productForm'])->name('product-form');
