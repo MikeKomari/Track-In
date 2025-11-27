@@ -7,6 +7,7 @@
 
   <link rel="stylesheet" href="{{ asset('bootstrap5.3/css/bootstrap.min.css') }}">
   <link rel="stylesheet" href="../../css/index.css">
+  @vite('resources/css/app.css')
 </head>
 <body>
   
