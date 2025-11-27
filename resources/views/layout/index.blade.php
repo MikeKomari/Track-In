@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 
-  <link rel="stylesheet" href="{{ asset('bootstrap5.3/css/bootstrap.min.css') }}">
-  <link rel="stylesheet" href="../../css/index.css">
   @vite('resources/css/app.css')
 </head>
 <body>
