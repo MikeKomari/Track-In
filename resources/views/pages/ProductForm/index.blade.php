@@ -5,7 +5,7 @@
       <div
         className="rounded-full bg-tertiary p-3 aspect-square w-fit cursor-pointer hover:bg-secondary/10 transition duration-100"
       >
-        <iconify-icon icon="tabler:chevron-up" className="text-2xl -rotate-90" />
+        <iconify-icon icon="tabler:chevron-left" className="text-2xl" />
       </div>
       <div>
         <h2 className="font-normal text-2xl">Tambahkan Barang
