@@ -14,11 +14,8 @@ return new class extends Migration
     {
         Schema::create('invoices', function (Blueprint $table) {
             $table->id();
-            $table->date('created_at');
 
-            $table->unsignedBigInteger('trasaction_id')->unique();
-
-            $table->foreign('transaction_id')->references('id')->on('transactions')->onDelete('cascade');
+            $table->foreignId('transaction_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
