@@ -26,7 +26,7 @@ return new class extends Migration
             $table->boolean('sni_required')->default(false);
             $table->string('size_category');
             $table->boolean('lartas_required')->default(false);
-            $table->enum('type', ['Materials', 'Chemicals', 'Raw Parts', 'Consumables']);
+            $table->enum('type', ['materials', 'chemicals', 'raw-parts', 'consumables']);
         });
     }
 

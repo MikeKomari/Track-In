@@ -19,7 +19,7 @@ class ProductFactory extends Factory
         return [
             // Note: Generate code on seeder directly
             "price" => fake()->numberBetween(0, 50000000),
-            "quantity" => fake()->numberBetween(0, 5000),
+            "quantity" => fake()->numberBetween(0, 25),
             "brand" => fake()->text(8),
             "description" => fake()->paragraph(),
             "size" => fake()->randomElement(["5.5mm", "2mm", "10mm", "Medium", "9mm", "2.5mm"]),
@@ -30,7 +30,7 @@ class ProductFactory extends Factory
             "sni_required" => fake()->boolean(),
             "lartas_required" => fake()->boolean(),
             "size_category" => fake()->randomElement(["Large", "Medium", "Small"]),
-            "type" => fake()->randomElement(['Materials', 'Chemicals', 'Raw Parts', 'Consumables'])
+            "type" => fake()->randomElement(['materials', 'chemicals', 'raw-parts', 'consumables'])
         ];
     }
 }
