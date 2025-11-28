@@ -4,7 +4,7 @@
     <p class="text-secondary mt-0.5">
     Beberapa produk memiliki detail pengisian data yang berbeda
     </p>
-    @include('pages.ProductForm.TypeSelector')
+    @include('components.TypeSelector')
 
     <div class="pt-4">
         <x-input

@@ -18,13 +18,13 @@ return new class extends Migration
             $table->integer('quantity');
             $table->string('brand');
             $table->text('description');
-            $table->string('size');
+            $table->float('size');
             $table->string('sch');
             $table->string('hs_code');
             $table->string('country_origin');
             $table->string('material_family');
             $table->boolean('sni_required')->default(false);
-            $table->string('size_category');
+            $table->string('unit');
             $table->boolean('lartas_required')->default(false);
             $table->enum('type', ['materials', 'chemicals', 'raw-parts', 'consumables']);
         });

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
-    protected $fillable = ['price', 'quantity', 'brand', 'description', 'size', 'sch', 'hs_code', 'country_origin', 'material_family', 'sni_required', 'size_category', 'lartas_required', 'type'];
+    protected $fillable = ['price', 'quantity', 'brand', 'description', 'size', 'sch', 'hs_code', 'country_origin', 'material_family', 'sni_required', 'unit', 'lartas_required', 'type'];
 
     // Handles multi column search
     private $SEARCH_COLUMNS = ["code", "brand", "description"];
