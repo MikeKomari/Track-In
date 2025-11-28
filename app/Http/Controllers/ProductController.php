@@ -37,6 +37,6 @@ class ProductController extends Controller
         ->when($search, fn($p) => $p->search($search))
         ->paginate(20);
 
-      return view("pages.Inventory.index", compact("products"));
+      return view("pages.inventory.index", compact("products"));
     }
 }

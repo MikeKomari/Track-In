@@ -2,19 +2,19 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class TransactionItem extends Model
 {
-    //
-
+    use HasFactory;
     protected $fillable = ['product_code', 'trasaction_id'];
 
     public function transaction(){
       return $this->belongsTo(Transaction::class, 'transaction_id', 'id');
     }
 
-    public function products(){
+    public function product(){
       return $this->belongsTo(Product::class, 'product_code', 'id');
     }
 }

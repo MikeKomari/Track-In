@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -17,3 +18,4 @@ Route::get('/sideModal', function(){
 });
 Route::get('/product-form', [ProductController::class, 'productForm'])->name('product-form');
 Route::get('/inventory', [ProductController::class, 'inventory'])->name('inventory');
+Route::get('/transactions', [TransactionController::class, 'view'])->name('transactions');

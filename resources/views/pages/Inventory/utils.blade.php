@@ -2,7 +2,7 @@
     <div class="flex gap-6">
         <x-search-bar></x-search-bar>
         <div class="w-px h-full bg-border"></div>
-        @include("pages.Inventory.filter")
+        @include("pages.inventory.filter")
     </div>
     <button
         class="flex items-center gap-2 bg-accent text-white px-5 py-1.5 rounded-md shadow-[0_0_10px_0_rgba(118,120,255,0.21)]">

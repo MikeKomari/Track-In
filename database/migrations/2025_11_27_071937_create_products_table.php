@@ -18,7 +18,7 @@ return new class extends Migration
             $table->integer('quantity');
             $table->string('brand');
             $table->string('description');
-            $table->integer('size');
+            $table->string('size');
             $table->string('sch');
             $table->string('hs_code');
             $table->string('country_origin');

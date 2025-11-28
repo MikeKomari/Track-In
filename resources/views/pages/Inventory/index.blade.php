@@ -2,8 +2,8 @@
 
 @section("content")
     <section class="h-full flex flex-col">
-        @include("pages.Inventory.header")
-        @include("pages.Inventory.utils")
-        @include("pages.Inventory.table")
+        @include("pages.inventory.header")
+        @include("pages.inventory.utils")
+        @include("pages.inventory.table")
     </section>
 @endsection
