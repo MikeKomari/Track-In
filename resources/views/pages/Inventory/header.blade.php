@@ -28,11 +28,15 @@
         @foreach ($tabs as $tab)
             @php
                 $isSelected = request()->query("type") === $tab["type"];
+
+                // Merge with the current query to retain previous states
+                $href = route("inventory", array_merge(request()->query(), ["type" => $tab["type"], "page" => null]));
             @endphp
+
             <a @class([
                 "flex gap-3 items-center text-secondary relative pb-3 px-4",
                 "hover:opacity-50 animate-cta" => !$isSelected,
-            ]) href={{ route("inventory", ["type" => $tab["type"]]) }}>
+            ]) href={{ $href }}>
                 <iconify-icon @class(["text-xl", "text-primary" => $isSelected]) icon={{ $tab["icon"] }}></iconify-icon>
                 <div @class(["text-sm", "text-primary" => $isSelected])>{{ $tab["display"] }}</div>
                 <div @class([

@@ -8,8 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
     use HasFactory;
-    //
     protected $fillable = ['price', 'quantity', 'brand', 'description', 'size', 'sch', 'hs_code', 'country_origin', 'material_family', 'sni_required', 'size_category', 'lartas_required', 'type'];
+
+    // Handles multi column search
+    private $SEARCH_COLUMNS = ["code", "brand", "description"];
+    public function scopeSearch($query, $term) {
+        $query->where(function($q) use ($term) {
+            foreach($this->SEARCH_COLUMNS as $column) {
+                $q->orWhere($column, "like", "%$term%");
+            };
+        });
+    }
 
     public function transactionItems()
     {

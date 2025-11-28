@@ -13,7 +13,9 @@
 
 <x-dropdown>
     <x-slot name="trigger">
-        {!! $activeElement ?? '<p class="text-secondary text-sm">Select Filter</p>' !!}
+        {!! $activeElement
+            ? "<div class='[&_p]:text-primary! flex gap-2'>$activeElement</div>"
+            : '<p class="text-secondary text-sm">Select Filter</p>' !!}
     </x-slot>
     <x-slot name="content">
         <div class="p-2 px-4 border-b">

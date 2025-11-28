@@ -1,12 +1,6 @@
 <div class="flex gap-3 justify-between px-8">
-    <div class="flex gap-6 ">
-        <div class="relative">
-            <iconify-icon class="absolute left-3 text-lg text-secondary top-1/2 -translate-y-1/2 "
-                icon="material-symbols:search-rounded"></iconify-icon>
-            <input type="text"
-                class="bg-input-background border rounded-md text-sm pl-9 placeholder:text-tertiary px-3 py-1.5 shadow-soft placeholder:text-sm focus:border-accent focus:outline-1 focus:outline-accent"
-                placeholder="Search...">
-        </div>
+    <div class="flex gap-6">
+        <x-search-bar></x-search-bar>
         <div class="w-px h-full bg-border"></div>
         @include("pages.Inventory.filter")
     </div>
