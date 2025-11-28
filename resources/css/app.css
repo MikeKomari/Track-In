@@ -23,3 +23,9 @@ iconify-icon svg {
     /* Iconify injects an <svg> inside. When that exists, these styles apply */
     display: block;
 }
+
+@layer components {
+    .selected-type {
+        @apply border-accent outline outline-1 outline-accent;
+    }
+}
