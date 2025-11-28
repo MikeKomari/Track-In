@@ -23,7 +23,8 @@
             @endforeach
         </div>
         @foreach ($products as $product)
-            <div class="grid [&>div]:text-sm [&>div]:px-4 [&>div]:py-4 border-b hover:bg-secondary/5 animate-cta"
+            <div data-window-trigger="{{ $product->code }}"
+                class="grid [&>div]:text-sm [&>div]:px-4 [&>div]:py-4 border-b hover:bg-secondary/5 animate-cta"
                 style="grid-template-columns: {{ $gridColumnSizes }};">
                 <div>{{ $product["code"] }}</div>
                 <div>
