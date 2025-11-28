@@ -3,49 +3,39 @@
     'hint' => null,
     'placeholder' => '',
     'inputClass' => '',
-    'isLoading' => false,
     'error' => null,
     'numeric' => false,
 ])
 
 <div {{ $attributes->merge(['class' => 'w-full']) }}>
-    {{-- LABEL --}}
     @if($label)
         <label class="pb-2 text-primary text-sm font-normal block">
             {{ $label }}
         </label>
     @endif
 
-    {{-- INPUT / LOADING --}}
-    @if(!$isLoading)
-        <div class="shadow-soft">
-            <input
-                {{ $attributes->merge(['class' =>
-                    "border border-border bg-highlight rounded-sm w-full px-5 py-3
-                    text-primary disabled:text-slate-500 transition duration-75
-                    placeholder:text-paragraph text-sm focus:ring-accent focus:ring-2
-                    outline-none disabled:cursor-not-allowed placeholder:font-normal
-                    font-normal bg-background " .
-                    ($error ? 'border-red-400 ' : '') .
-                    $inputClass
-                ]) }}
-                placeholder="{{ $placeholder }}"
-                @if($numeric) inputmode="numeric" @endif
-            >
-        </div>
-    @else
-        {{-- SKELETON --}}
-        <div class="bg-gray-200 animate-pulse h-12 w-full rounded"></div>
-    @endif
+    <div class="shadow-soft">
+        <input
+            {{ $attributes->merge(['class' =>
+                "border border-border bg-highlight rounded-sm w-full px-5 py-3
+                text-primary disabled:text-slate-500 transition duration-75
+                placeholder:text-paragraph text-sm focus:ring-accent focus:ring-2
+                outline-none disabled:cursor-not-allowed placeholder:font-normal
+                font-normal bg-background " .
+                ($error ? 'border-red-400 ' : '') .
+                $inputClass
+            ]) }}
+            placeholder="{{ $placeholder }}"
+            @if($numeric) inputmode="numeric" @endif
+        >
+    </div>
 
-    {{-- HINT --}}
     @if(!$error && $hint)
         <p class="text-xs text-paragraph mt-2 leading-[150%]">
             {{ $hint }}
         </p>
     @endif
 
-    {{-- ERROR MESSAGE --}}
     @if($error)
         <div class="flex items-center gap-2 mt-2 text-red-400">
             <svg class="fill-red-400" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
