@@ -1,5 +1,5 @@
 <div class="flex flex-col gap-4">
-    <x-genericDropdown
+    <x-generic-dropdown
         name="brand"
         label="Merk Produk (Brand)"
         :items="$brands"

@@ -19,7 +19,7 @@ class ProductController extends Controller
         $units = Product::pluck('unit')->unique()->values();
         $materialFamilies = Product::pluck('material_family')->unique()->values();
         $brands = Product::pluck('brand')->unique()->values();
-        return view('pages.ProductForm.index', compact('types', 'units', 'materialFamilies', 'brands'));
+        return view('pages.product-form.index', compact('types', 'units', 'materialFamilies', 'brands'));
     }
 
     public function inventory() {

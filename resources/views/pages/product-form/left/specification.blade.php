@@ -6,17 +6,17 @@
 
     <div class="pt-4">
         <div class="flex flex-col gap-4">
-            @include('pages.ProductForm.Left.radiobutton')
+            @include('pages.product-form.left.radio-button')
             <p class="text-secondary italic mb-2">*Dapat memilih lebih dari satu</p>
             <div class="flex gap-4">
                 <x-input label="Ukuran" placeholder="8" class="mt-1" name="size" :error="$errors->first('size')" />
-                <x-genericDropdown name="unit" label="Unit" :items="$units" :value="old('unit')" />
+                <x-generic-dropdown name="unit" label="Unit" :items="$units" :value="old('unit')" />
             </div>
             <div class="flex">
                 <x-input-dropdown triggerClass="py-3" name="material" :items="$materialFamilies" :value="old('material')">
                 </x-input-dropdown>
 
-                {{-- <x-genericDropdown name="material" label="Material" :items="$materialFamilies" :value="old('material')" /> --}}
+                {{-- <x-generic-dropdown name="material" label="Material" :items="$materialFamilies" :value="old('material')" /> --}}
             </div>
         </div>
     </div>

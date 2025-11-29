@@ -1,4 +1,4 @@
-import { QueryClient } from "../queryClient";
+import { QueryClient } from "../query-client";
 
 window.addEventListener("click", (e) => {
     const windowContainer = document.querySelector("[data-window-component]");
