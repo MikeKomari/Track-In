@@ -21,19 +21,33 @@
 
         <li
             class="option flex items-center gap-2 bg-white px-3 py-2 rounded-sm border shadow-soft transition cursor-pointer
-                   {{ $isSelected ? 'border-accent ring ring-accent' : 'hover:border-accent/50 border-gray-200' }}"
+                   {{ $isSelected ? 'border-gray-200' : 'hover:border-accent/50 border-gray-200' }}"
             onclick="
                 const input = document.getElementById('requirement-input');
-                let values = input.value ? input.value.split(',') : [];
+                let values = input.value ? input.value.split(',').filter(Boolean) : [];
 
-                if(values.includes('{{ $key }}')){
-                    values = values.filter(v => v !== '{{ $key }}');
-                    this.classList.remove('border-accent', 'ring');
-                    this.querySelector('.radio-circle-inner').classList.add('opacity-0');
+                const key = '{{ $key }}';
+                const li = this;
+                const circle = li.querySelector('.radio-circle-inner');
+
+                circle.classList.remove('initial-selected');
+                circle.classList.remove('opacity-100');
+
+                const selected = values.includes(key);
+
+                if (selected) {
+                    values = values.filter(v => v !== key);
+                    li.classList.remove('border-accent', 'ring', 'ring-accent');
+                    li.classList.add('border-gray-200', 'hover:border-accent/50');
+
+                    circle.classList.add('opacity-0');
                 } else {
-                    values.push('{{ $key }}');
-                    this.classList.add('border-accent', 'ring');
-                    this.querySelector('.radio-circle-inner').classList.remove('opacity-0');
+                    values.push(key);
+                    li.classList.remove('border-gray-200', 'hover:border-accent/50');
+                    li.classList.add('border-accent', 'ring', 'ring-accent');
+
+                    circle.classList.remove('opacity-0');
+                    circle.classList.add('opacity-100');
                 }
 
                 input.value = values.join(',');
@@ -47,7 +61,8 @@
 
             <div class="ml-auto flex items-center justify-center">
                 <div class="w-6 h-6 border rounded-full flex items-center justify-center border-gray-300">
-                    <div class="radio-circle-inner w-3 h-3 bg-accent rounded-full transition duration-150 {{ $isSelected ? 'opacity-100' : 'opacity-0' }}"></div>
+                    <div class="radio-circle-inner w-3 h-3 bg-accent rounded-full transition duration-150 {{ $isSelected ? 'opacity-100 initial-selected' : 'opacity-0' }}"></div>
+
                 </div>
             </div>
         </li>

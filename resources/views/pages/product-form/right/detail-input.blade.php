@@ -1,10 +1,13 @@
 <div class="flex flex-col gap-4">
-    <x-generic-dropdown
-        name="brand"
+    <x-input-dropdown
+        triggerClass="py-3"
         label="Merk Produk (Brand)"
+        name="brand"
         :items="$brands"
         :value="old('brand')"
-    />
+        :error="$errors->first('brand')"
+        >
+    </x-input-dropdown>
     <x-input
         label="Kode HS"
         placeholder="73072110"

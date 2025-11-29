@@ -19,7 +19,7 @@ class ProductController extends Controller
         $materialFamilies = Product::pluck('material_family')->unique()->values();
         $units = Product::pluck('unit')->unique()->values();
         $types = Product::pluck('type')->unique()->values();
-        return view('pages.ProductForm.index', compact( 'brands', 'units', 'materialFamilies', 'types'));
+        return view('pages.product-form.index', compact( 'brands', 'units', 'materialFamilies', 'types'));
     }
 
     public function storeProduct(Request $request) {
