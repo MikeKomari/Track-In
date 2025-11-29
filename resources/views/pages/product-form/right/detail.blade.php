@@ -4,20 +4,25 @@
     <div>
         <h2 class="text-primary text-lg font-medium mb-2">Komersial Produk</h2>
         <p class="text-sm text-secondary mb-6">
-        Masukan informasi komersil yang dimiliki oleh produk
+            Masukan informasi komersil yang dimiliki oleh produk
         </p>
-        @include('pages.ProductForm.Right.CommercialInput')
+        @include('pages.product-form.right.commercial-input')
     </div>
 
     <div class="mt-10 mb-16">
         <h2 class="text-primary text-lg font-medium mb-2">Detil Produk</h2>
         <p class="text-sm text-secondary mb-6">
-        Masukan informasi umum yang dimiliki oleh produk
+            Masukan informasi umum yang dimiliki oleh produk
         </p>
-        @include('pages.ProductForm.Right.DetailInput')
+        @include('pages.product-form.right.detail-input')
     </div>
 
+<<<<<<< HEAD:resources/views/pages/ProductForm/Right/Detail.blade.php
     <button type="submit" class="flex items-center justify-center text-center gap-2 bg-accent text-white px-5 py-4 rounded-md shadow-[0_0_10px_0_rgba(118,120,255,0.21)] cursor-pointer">
+=======
+    <a href=#
+        class="flex items-center justify-center text-center gap-2 bg-accent text-white px-5 py-4 rounded-md shadow-[0_0_10px_0_rgba(118,120,255,0.21)]">
+>>>>>>> c41f351afabe6cb24c94759b3ad3ebc3df519651:resources/views/pages/product-form/right/detail.blade.php
         <iconify-icon class="text-xl" icon="ic:round-plus"></iconify-icon>
         <p class="text-sm">Tambahkan Barang</p>
     </button>
