@@ -14,6 +14,7 @@
                     placeholder="8"
                     class="mt-1"
                     name="size"
+                    :value="old(key: 'size')"
                     :error="$errors->first('size')"
                 />
                 <x-genericDropdown
@@ -25,10 +26,10 @@
             </div>
             <div class="flex">
                 <x-genericDropdown
-                    name="material"
+                    name="material_family"
                     label="Material"
                     :items="$materialFamilies"
-                    :value="old('material')"
+                    :value="old('material_family')"
                 />
             </div>
         </div>

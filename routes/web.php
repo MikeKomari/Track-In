@@ -8,7 +8,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/add-form', [ProductController::class, 'addForm'])->name('add-form');
+Route::get('/add-product', [ProductController::class, 'addProduct'])->name('add-product');
+Route::post('/add-product', [ProductController::class, 'storeProduct'])->name('store-product');
 Route::get('/mike', function(){
   return view('components.modalTemp');
 });
