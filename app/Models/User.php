@@ -49,6 +49,20 @@ class User extends Authenticatable
         ];
     }
 
+    // Handles multi column search
+    private $SEARCH_COLUMNS = ["name", "email"];
+    public function scopeSearch($query, $term) {
+        $query->where(function($q) use ($term) {
+            foreach($this->SEARCH_COLUMNS as $column) {
+                $q->orWhere($column, "like", "%$term%");
+            };
+        });
+    }
+
+    public function scopedSearch($query, $search) {
+        // return
+    }
+
     public function transactions(){
       return $this->hasMany(Transaction::class, 'user_id', 'id');
     }

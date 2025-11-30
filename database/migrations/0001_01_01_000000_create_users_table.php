@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->string('profilePictureURL')->nullable();
             $table->string('password');
-            $table->string('role');
+            $table->string('phone')->nullable();
+            $table->enum('role', ['admin', 'user']);
             $table->rememberToken();
         });
 

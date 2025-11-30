@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -11,15 +12,19 @@ Route::get('/', function () {
 // View Routes -> Redirect to views
 Route::get('/inventory', [ProductController::class, 'getProducts'])->name('inventory');
 Route::get('/inventory/form', [ProductController::class, 'getProductForm'])->name('product-form');
-Route::get('/transaction/form', [TransactionController::class, 'getTransactionForm'])->name('transaction-form');
 Route::get('/transactions', [TransactionController::class, 'getTransactions'])->name('transactions');
+Route::get('/transaction/form', [TransactionController::class, 'getTransactionForm'])->name('transaction-form');
+Route::get('/users', [UserController::class, 'getUsers'])->name('users');
 
 // Action Routes -> Perform mutations (delete, update, create)
 Route::post('/products', [ProductController::class, 'createProduct'])->name('create.product');
 Route::delete('/products/{code}', [ProductController::class, 'deleteProduct'])->name('delete.product');
+Route::delete('/transactions/{id}', [TransactionController::class, 'deleteTransaction'])->name('delete.transaction');
 
 // API Routes
 Route::prefix("api")->group(function() {
     Route::get('/products/{code}', [ProductController::class, 'getProduct']);
     Route::get('/transactions/{id}', [TransactionController::class, 'getTransaction']);
+    Route::get('/users/{id}', [UserController::class, 'getUser']);
+    Route::put('/users/{id}', [UserController::class, 'updateUser']);
 });

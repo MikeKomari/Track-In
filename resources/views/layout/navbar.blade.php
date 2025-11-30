@@ -10,11 +10,11 @@
             'route' => 'transactions',
             'icon' => 'mdi:cart-outline',
         ],
-        // [
-        //     'display' => 'User',
-        //     'route' => 'users',
-        //     'icon' => 'mdi:user-outline',
-        // ],
+        [
+            'display' => 'User',
+            'route' => 'users',
+            'icon' => 'mdi:user-outline',
+        ],
     ];
 @endphp
 <nav class="px-2 navbar relative flex flex-col">

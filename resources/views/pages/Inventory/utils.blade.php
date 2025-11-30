@@ -1,7 +1,7 @@
 <div class="flex gap-3 justify-between px-8">
-    <div class="flex gap-6">
+    <div class="flex gap-6 h-full">
         <x-search-bar route="{{ route('inventory') }}"></x-search-bar>
-        <div class="w-px h-full bg-border"></div>
+        <div class="bg-border self-stretch h-full w-px"></div>
         @include('pages.inventory.filter')
     </div>
     <a href={{ route('product-form') }}

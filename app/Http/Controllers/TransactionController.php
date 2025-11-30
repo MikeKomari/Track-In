@@ -16,10 +16,12 @@ class TransactionController extends Controller
     }
 
     public function getTransactions() {
-        $search = request()->query("search");
+        $search = request("search");
+        $filter = request("active");
 
         $transactions = Transaction::with("user")
             ->when($search, fn($q) => $q->search($search))
+            ->when($filter, fn($q) => $q->where("status", $filter))
             ->orderBy("created_at", "desc")
             ->paginate(20);
         $transactions->through(function ($transaction) {
@@ -57,5 +59,10 @@ class TransactionController extends Controller
         $types = Product::pluck('type')->unique()->values();
         $products = Product::where("type", $type)->get();
         return view('pages.transaction-form.index', compact('types', 'products'));
+    }
+
+    public function deleteTransaction($id) {
+        Transaction::findOrFail($id)->delete();
+        return back();
     }
 }
