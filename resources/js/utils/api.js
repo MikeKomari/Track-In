@@ -10,10 +10,10 @@ export class API {
 
         let headers = {
             "X-CSRF-TOKEN": csrfToken,
+            Accept: "application/json",
         };
         if (!isFormData) {
             headers["Content-Type"] = "application/json";
-            headers["Accept"] = "application/json";
         }
         return headers;
     }

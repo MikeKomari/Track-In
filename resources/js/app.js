@@ -17,4 +17,4 @@ import "./components/input-dropdown.js";
 import "./components/user-selector.js";
 import "./components/delete-modal.js";
 
-setTimeout(() => QueryClient.publish("users"), 0);
+// setTimeout(() => QueryClient.publish("users"), 0);

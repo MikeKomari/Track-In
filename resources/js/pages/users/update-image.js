@@ -43,7 +43,7 @@ async function handleFileUpload(file, wrapperElement) {
 
         console.log("Upload Success:", response);
 
-        // window.location.reload();
+        window.location.reload();
     } catch (err) {
         console.error("Upload Failed:", err);
     }
