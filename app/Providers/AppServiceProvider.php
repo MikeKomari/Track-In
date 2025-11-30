@@ -27,5 +27,9 @@ class AppServiceProvider extends ServiceProvider
         Blade::directive("formatNumber", function($num) {
           return "{{ number_format($num, '0', ',', '.'); }}";
         });
+
+        Blade::directive("formatImage", function($imagePath) {
+            return "{{ str_contains($imagePath, 'picsum') ? $imagePath : url('/') . '/' . $imagePath }}";
+        });
     }
 }

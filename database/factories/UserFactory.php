@@ -29,7 +29,7 @@ class UserFactory extends Factory
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
             'phone' => fake()->phoneNumber(),
-            'profilePictureURL' => 'https://picsum.photos/800/800?random='.fake()->numberBetween(1,10000),
+            'profile_picture_path' => 'https://picsum.photos/800/800?random='.fake()->numberBetween(1,10000),
             'role' => fake()->randomElement(['admin', 'user']),
         ];
     }

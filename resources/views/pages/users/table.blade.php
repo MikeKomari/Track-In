@@ -25,9 +25,9 @@
                 class="grid [&>div]:items-center [&>div]:flex [&>div]:text-sm [&>div]:px-4 [&>div]:py-3 border-b hover:bg-secondary/5 animate-cta"
                 style="grid-template-columns: {{ $gridColumnSizes }};">
                 <div class="flex items-center gap-4">
-                    @if ($user->profilePictureURL)
-                        <img src="{{ $user->profilePictureURL }}"
-                            class="w-10 aspect-square bg-background rounded-full"></img>
+                    @if ($user->profile_picture_path)
+                        <img src="{{ $user->profile_picture_path }}"
+                            class="w-10 aspect-square bg-background rounded-full object-cover"></img>
                     @else
                         <div class="w-10 aspect-square bg-background rounded-full"></div>
                     @endif

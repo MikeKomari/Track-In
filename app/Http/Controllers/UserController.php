@@ -7,6 +7,7 @@ use App\Models\User;
 use App\Traits\APIResponse;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class UserController extends Controller
 {
@@ -41,9 +42,29 @@ class UserController extends Controller
     }
 
     public function updateUser(UpdateUserRequest $request, $id) {
-        logger()->info("METHOD HIT");
         $validatedData = $request->validated();
         $user = User::find($id)->update($validatedData);
         return $this->success($user, "Successfully updated the user with id $id");
+    }
+
+    public function updateProfilePicture(Request $request, $id) {
+        $user = User::find($id);
+        $request->validate([
+            "profile_picture" => "required|image|mimes:jpeg,png,jpg,gif|max:2048"
+        ]);
+
+        if(!$request->hasFile("profile_picture")) {
+            return $this->error("Unable to find 'profile_picture' image in the form data");
+        }
+
+        // Delete exisiting picture (if it exists)
+        if ($user->profile_picture_path) {
+            Storage::disk("public")->delete($user->profile_picture_path);
+        }
+
+        $path = $request->file("profile_picture")->store("profile-pictures", "public");
+        $user->update(["profile_picture_path" => $path]);
+
+        return $this->success("", "Successfully updated avatar");
     }
 }

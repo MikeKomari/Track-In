@@ -16,7 +16,7 @@ return new class extends Migration
             $table->timestamps();
             $table->string('name');
             $table->string('email')->unique();
-            $table->string('profilePictureURL')->nullable();
+            $table->string('profile_picture_path')->nullable();
             $table->string('password');
             $table->string('phone')->nullable();
             $table->enum('role', ['admin', 'user']);

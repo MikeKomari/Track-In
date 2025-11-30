@@ -26,9 +26,9 @@
                 style="grid-template-columns: {{ $gridColumnSizes }};">
                 <di class="flex items-center text-sm px-4">{{ $transaction['code'] }}</di>
                 <div class="flex items-center gap-4">
-                    @if ($transaction->user->profilePictureURL)
-                        <img src="{{ $transaction->user->profilePictureURL }}"
-                            class="w-10 aspect-square bg-background rounded-full"></img>
+                    @if ($transaction->user->profile_picture_path)
+                        <img src="{{ $transaction->user->profile_picture_path }}"
+                            class="w-10 aspect-square bg-background rounded-full object-cover"></img>
                     @else
                         <div class="w-10 aspect-square bg-background rounded-full"></div>
                     @endif

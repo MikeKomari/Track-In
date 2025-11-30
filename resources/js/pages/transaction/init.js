@@ -1,5 +1,6 @@
-import { API_URL } from "../config/constants";
-import { QueryClient } from "../query-client";
+import { API_URL } from "../../config/constants";
+import { QueryClient } from "../../query-client";
+import { API } from "../../utils/api";
 
 async function renderTransactionDetails() {
     const container = document.querySelector(
@@ -13,13 +14,10 @@ async function renderTransactionDetails() {
     container.dataset.isLoading = true;
     try {
         // Fetch partial page
-        const res = await fetch(`${API_URL}/transactions/${id}`);
-        const json = await res.json();
-        if (!res.ok) throw new Error("Request did not succeed");
+        const data = await API.get(`/transactions/${id}`);
 
         // Append html string
-        const data = json.data;
-        container.innerHTML = data;
+        container.innerHTML = data.data;
     } catch (err) {
         console.log(err);
     }

@@ -1,4 +1,4 @@
-<x-window width="40rem" key="id" name="users">
+<x-window width="40rem" state="open" key="id" name="users">
     <div class="px-7 py-2.5 border-b flex gap-3 items-center">
         <iconify-icon icon="material-symbols:close-rounded" data-window-close
             class="text-lg text-secondary hover:opacity-50 animate-cta"></iconify-icon>

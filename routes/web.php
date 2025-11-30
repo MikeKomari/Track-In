@@ -27,4 +27,5 @@ Route::prefix("api")->group(function() {
     Route::get('/transactions/{id}', [TransactionController::class, 'getTransaction']);
     Route::get('/users/{id}', [UserController::class, 'getUser']);
     Route::put('/users/{id}', [UserController::class, 'updateUser']);
+    Route::post('/users/{id}/profile-picture', [UserController::class, 'updateProfilePicture']);
 });

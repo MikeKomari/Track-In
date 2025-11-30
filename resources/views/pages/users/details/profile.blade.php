@@ -1,7 +1,6 @@
 <div class="relative">
     <img class="w-full h-36 object-cover" src={{ asset('images/user-default-banner.png') }} alt="">
-    <img src="{{ $user->profilePictureURL }}" alt="user profile picture"
-        class="absolute bottom-0 left-8 translate-y-1/2 w-32 aspect-square rounded-full border-6 border-white">
+    @include('pages.users.details.profile-picture')
 </div>
 <div class="px-8 mt-20">
     <div>
