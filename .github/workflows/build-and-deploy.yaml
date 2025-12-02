@@ -33,6 +33,7 @@ jobs:
           mkdir -p "$(dirname $SSH_KEY_PATH)"
 
           echo '${{ secrets.SERVER_PRIVATE_KEY }}' > "$SSH_KEY_PATH"
+          chmod 700 "$SSH_KEY_PATH"
           echo '${{ secrets.ENV }}' > "$ENV_PATH"
 
           ssh -i "$SSH_KEY_PATH" "$SERVER_USER@$SERVER_IP" docker ps
