@@ -25,7 +25,7 @@ jobs:
       - name: Build
         run: |
 
-          SSH_KEY_PATH='~/.ssh/ssh_key'
+          SSH_KEY_PATH="~/.ssh/ssh_key"
           ENV_PATH="~/.env"
           SERVER_USER='${{ secrets.SERVER_USER }}'
           SERVER_IP='${{ secrets.SERVER_IP }}'
