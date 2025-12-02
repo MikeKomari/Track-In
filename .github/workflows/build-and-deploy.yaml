@@ -30,7 +30,7 @@ jobs:
           SERVER_USER='${{ secrets.SERVER_USER }}'
           SERVER_IP='${{ secrets.SERVER_IP }}'
 
-          mkdir -p "$SSH_KEY_PATH"
+          mkdir -p "$(dirname $SSH_KEY_PATH)"
 
           echo '${{ secrets.SERVER_PRIVATE_KEY }}' > "$SSH_KEY_PATH"
           echo '${{ secrets.ENV }}' > "$ENV_PATH"
