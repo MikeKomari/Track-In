@@ -25,7 +25,7 @@ jobs:
       - name: Build
         run: |
 
-          # SERVER_APPLICATION_PATH="~/trackin"
+          SERVER_APPLICATION_PATH="~/trackin"
           SSH_KEY_PATH="$HOME/.ssh/ssh_key"
           ENV_PATH="$HOME/.env"
           SERVER_USER='${{ secrets.SERVER_USER }}'
@@ -38,17 +38,23 @@ jobs:
           echo '${{ secrets.ENV }}' > "$ENV_PATH"
 
           # Prepare directory on the server
-          ssh -o StrictHostKeyChecking=no -i "$SSH_KEY_PATH" "$SERVER_USER@$SERVER_IP" docker ps
-          # ssh -o StrictHostKeyChecking=no -i "$SSH_KEY_PATH" "$SERVER_USER@$SERVER_IP" << EOF
-          #   set -xe
-          #   mkdir -p $SERVER_APPLICATION_PATH
-          #   chown -R $SERVER_USER:$SERVER_USER $SERVER_APPLICATION_PATH
-          # EOF
+          ssh -o StrictHostKeyChecking=no -i "$SSH_KEY_PATH" "$SERVER_USER@$SERVER_IP" << EOF
+            set -xe
+
+            if [ "$SERVER_APPLICATION_PATH" == "/home/$SERVER_USER" ] || [ -z "$SERVER_APPLICATION_PATH" ]; then
+              echo "ERROR: Dangerous path detected! Stopping to save your server."
+              exit 1
+            fi
+
+            # Safe to proceed
+            mkdir -p "$SERVER_APPLICATION_PATH"
+            chown -R "$SERVER_USER:$SERVER_USER" "$SERVER_APPLICATION_PATH"
+          EOF
 
           # Copy files from agent to the server
-          # rsync -avz -e "ssh -o StrictHostKeyChecking=no -i $SSH_KEY_PATH" \
-          #   "$GITHUB_WORKSPACE/" \
-          #   "$SERVER_USER@$SERVER_IP:$SERVER_APPLICATION_PATH"
+          rsync -avz -e "ssh -o StrictHostKeyChecking=no -i $SSH_KEY_PATH" \
+            "$GITHUB_WORKSPACE/" \
+            "$SERVER_USER@$SERVER_IP:$SERVER_APPLICATION_PATH"
 
 
 
