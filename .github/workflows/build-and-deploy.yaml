@@ -39,9 +39,8 @@ jobs:
 
           # Prepare directory on the server
           ssh -o StrictHostKeyChecking=no -i "$SSH_KEY_PATH" "$SERVER_USER@$SERVER_IP" << EOF
-            echo "$SERVER_APPLICATION_PATH"
+            set -xe
             mkdir -p "$SERVER_APPLICATION_PATH"
-            echo "$SERVER_USER:$SERVER_USER"
             chown -R "$SERVER_USER:$SERVER_USER" "$SERVER_APPLICATION_PATH"
           EOF
 
