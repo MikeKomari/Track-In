@@ -43,7 +43,8 @@ jobs:
 
           # --- SETUP SSH KEY ---
           mkdir -p "$(dirname "$SSH_KEY_PATH")"
-          echo "${{ secrets.SERVER_PRIVATE_KEY }}" > "$SSH_KEY_PATH"
+          echo '${{ secrets.SERVER_PRIVATE_KEY }}' > "$SSH_KEY_PATH"
+          echo '${{ secrets.ENV }}' > ".env.prod"
           chmod 600 "$SSH_KEY_PATH"
 
           # --- SETUP REMOTE DIRECTORY ---
@@ -51,8 +52,6 @@ jobs:
             "mkdir -p $SERVER_PATH"
 
           # --- COPY CONFIG FILES ONLY ---
-          # We ONLY copy the compose file and the env file.
-          # We do NOT copy the source code (src/) because the code is inside the Docker images now.
           scp -o StrictHostKeyChecking=no -i "$SSH_KEY_PATH" \
             compose.prod.yaml .env.prod \
             "$SERVER_USER@$SERVER_IP:$SERVER_PATH"
