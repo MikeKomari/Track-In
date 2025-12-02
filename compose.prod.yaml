@@ -12,6 +12,7 @@ services:
       - "--entrypoints.web.address=:80"
       - "--entrypoints.web.http.redirections.entrypoint.to=websecure"
       - "--entrypoints.web.http.redirections.entrypoint.scheme=https"
+
     ports:
       - "80:80"
       - "443:443"
@@ -19,6 +20,8 @@ services:
     volumes:
       - /letsencrypt:/letsencrypt
       - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - traefik_public
   web:
     image: "josephyusmita/trackin-web:latest"
     build:
