@@ -35,7 +35,7 @@ jobs:
 
           echo '${{ secrets.SERVER_PRIVATE_KEY }}' > "$SSH_KEY_PATH"
           chmod 700 "$SSH_KEY_PATH"
-          echo '${{ secrets.ENV }}' > "$ENV_PATH"
+          echo '${{ secrets.ENV }}' > "$GITHUB_WORKSPACE/.env.prod"
 
           # Prepare directory on the server
           ssh -o StrictHostKeyChecking=no -i "$SSH_KEY_PATH" "$SERVER_USER@$SERVER_IP" << EOF
@@ -56,9 +56,7 @@ jobs:
             "$GITHUB_WORKSPACE/" \
             "$SERVER_USER@$SERVER_IP:$SERVER_APPLICATION_PATH"
 
-
-
-
-          # docker compose --env-file .env.prod -f compose.prod.yaml up --build -d
-          # docker build -t ${{ secrets.DOCKER_USERNAME }}/petrousahatama-frontend .
-          # docker push ${{ secrets.DOCKER_USERNAME }}/petrousahatama-frontend
+          # Start the docker container
+          ssh -o StrictHostKeyChecking=no -i "$SSH_KEY_PATH" "$SERVER_USER@$SERVER_IP" << EOF
+             docker compose --env-file .env.prod -f compose.prod.yaml up --build -d
+          EOF
