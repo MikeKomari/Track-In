@@ -41,7 +41,7 @@ jobs:
           ssh -o StrictHostKeyChecking=no -i "$SSH_KEY_PATH" "$SERVER_USER@$SERVER_IP" << EOF
             set -xe
             mkdir -p "$SERVER_APPLICATION_PATH"
-            chown -R "$SERVER_USER:$SERVER_USER" "$SERVER_APPLICATION_PATH"
+            chown -R "$USER:$USER" "$SERVER_APPLICATION_PATH"
           EOF
 
           # Copy application files to server
