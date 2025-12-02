@@ -38,11 +38,12 @@ jobs:
           echo '${{ secrets.ENV }}' > "$ENV_PATH"
 
           # Prepare directory on the server
-          ssh -o StrictHostKeyChecking=no -i "$SSH_KEY_PATH" "$SERVER_USER@$SERVER_IP" << EOF
-            set -xe
-            mkdir -p $SERVER_APPLICATION_PATH
-            chown -R $SERVER_USER:$SERVER_USER $SERVER_APPLICATION_PATH
-          EOF
+          ssh -o StrictHostKeyChecking=no -i "$SSH_KEY_PATH" "$SERVER_USER@$SERVER_IP" docker ps
+          # ssh -o StrictHostKeyChecking=no -i "$SSH_KEY_PATH" "$SERVER_USER@$SERVER_IP" << EOF
+          #   set -xe
+          #   mkdir -p $SERVER_APPLICATION_PATH
+          #   chown -R $SERVER_USER:$SERVER_USER $SERVER_APPLICATION_PATH
+          # EOF
 
           # Copy files from agent to the server
           # rsync -avz -e "ssh -o StrictHostKeyChecking=no -i $SSH_KEY_PATH" \
