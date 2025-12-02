@@ -15,6 +15,7 @@ Route::get('/inventory/form', [ProductController::class, 'getProductForm'])->nam
 Route::get('/product/{code}', [ProductController::class, 'editProductForm'])->name('product-edit');
 Route::get('/transactions', [TransactionController::class, 'getTransactions'])->name('transactions');
 Route::get('/transaction/form', [TransactionController::class, 'getTransactionForm'])->name('transaction-form');
+Route::get('/transaction/{id}', [TransactionController::class, 'editTransactionForm'])->name('transaction-edit');
 Route::get('/users', [UserController::class, 'getUsers'])->name('users');
 
 // Action Routes -> Perform mutations (delete, update, create)
@@ -23,6 +24,7 @@ Route::post('/transaction', [TransactionController::class, 'createTransaction'])
 Route::delete('/products/{code}', [ProductController::class, 'deleteProduct'])->name('delete.product');
 Route::delete('/transactions/{id}', [TransactionController::class, 'deleteTransaction'])->name('delete.transaction');
 Route::put('/product/{code}', [ProductController::class, 'updateProduct'])->name('update.product');
+Route::put('/transaction/{id}', [TransactionController::class, 'updateTransaction'])->name('update.transaction');
 
 
 // API Routes

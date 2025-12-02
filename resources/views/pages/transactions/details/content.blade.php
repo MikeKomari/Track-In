@@ -8,7 +8,7 @@
             <x-status-badge variant="{{ $transaction->status }}"></x-status-badge>
         </div>
         <div class="flex items-center gap-3">
-            <a href={{ route('transaction-form', ['id' => $transaction->id]) }}
+            <a href={{ route('transaction-edit', ['id' => $transaction->id]) }}
                 class="hover:border-secondary hover:*:text-primary animate-cta p-2 w-fit border shadow-soft rounded-md flex items-center justify-center aspect-square animate-cta">
                 <iconify-icon icon="tabler:edit" class="text-xl text-secondary animate-cta"></iconify-icon>
             </a>
