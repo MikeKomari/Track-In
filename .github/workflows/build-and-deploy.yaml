@@ -58,5 +58,6 @@ jobs:
 
           # Start the docker container
           ssh -o StrictHostKeyChecking=no -i "$SSH_KEY_PATH" "$SERVER_USER@$SERVER_IP" << EOF
+             cd $SERVER_APPLICATION_PATH
              docker compose --env-file .env.prod -f compose.prod.yaml up --build -d
           EOF
