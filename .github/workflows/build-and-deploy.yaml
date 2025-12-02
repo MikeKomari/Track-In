@@ -44,7 +44,7 @@ jobs:
           EOF
 
           # Copy application files to server
-          scp -i "$SSH_KEY_PATH" -r $GITHUB_WORKSPACE "$SERVER_USER@$SERVER_IP:$SERVER_APPLICATION_PATH"
+          scp -i "$SSH_KEY_PATH" -r "$GITHUB_WORKSPACE" "$SERVER_USER@$SERVER_IP:$SERVER_APPLICATION_PATH"
 
 
 
