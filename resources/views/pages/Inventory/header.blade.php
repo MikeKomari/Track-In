@@ -2,28 +2,28 @@
     $tabs = [
         [
             "type" => "materials",
-            "display" => "Materials",
+            "display" => __('messages.category_mat'),
             "icon" => "icon-park-outline:ad-product",
         ],
         [
             "type" => "chemicals",
-            "display" => "Chemicals",
+            "display" =>  __('messages.category_chem'),
             "icon" => "solar:flame-bold",
         ],
         [
             "type" => "raw-parts",
-            "display" => "Raw Parts",
+            "display" =>  __('messages.category_raw_parts'),
             "icon" => "ri:wrench-line",
         ],
         [
             "type" => "consumables",
-            "display" => "Consumables",
+            "display" =>  __('messages.category_consumeables'),
             "icon" => "mingcute:paper-line",
         ],
     ];
 @endphp
 <div class=" pt-6 px-8 pb-4">
-    <h1 class="text-[1.6rem] tracking-tight mb-6">Inventory</h1>
+    <h1 class="text-[1.6rem] tracking-tight mb-6">{{ __('messages.inventory_title') }}</h1>
     <div class="flex gap-4 items-center border-b">
         @foreach ($tabs as $tab)
             @php

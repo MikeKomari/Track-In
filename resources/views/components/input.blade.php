@@ -5,6 +5,7 @@
     'inputClass' => '',
     'error' => null,
     'numeric' => false,
+    'type' => 'text', 
 ])
 
 <div {{ $attributes->merge(['class' => 'w-full']) }}>
@@ -16,6 +17,7 @@
 
     <div class="shadow-soft">
         <input
+            type="{{$type}}"
             {{ $attributes->merge([
                 'class' =>
                     "border border-border bg-highlight rounded-sm w-full px-5 py-4

@@ -1,5 +1,7 @@
 @extends("layout.index")
 
+@section('title', __('messages.inventory_title') . ' - Track-In')
+
 @section("content")
     @include("pages.inventory.details.index")
     <section class="h-full flex flex-col">

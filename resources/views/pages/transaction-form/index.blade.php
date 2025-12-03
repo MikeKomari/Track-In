@@ -1,5 +1,7 @@
 @extends('layout.index')
 
+@section('title', 'Create Transaction - Track-In')
+
 @section('content')
     @include('pages.transaction-form.header')
     <div class="grid">

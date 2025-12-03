@@ -16,6 +16,8 @@
         //     'icon' => 'mdi:user-outline',
         // ],
     ];
+
+     
 @endphp
 <nav class="px-2 navbar relative flex flex-col">
     <div class="pt-4 pb-1">
@@ -47,6 +49,9 @@
             </a>
         @endforeach
     </ul>
+
+    <x-language-switcher/>          
+
     <div
         class="mb-3 flex gap-2 items-center group-data-[navbar-state=open]:hover:bg-secondary/10 group-data-[navbar-state=closed]:hover:opacity-75 animate-cta p-1 rounded-lg">
         <img class="rounded-full max-w-10 max-h-10 w-full min-w-9 transition-all aspect-square border-white border"
