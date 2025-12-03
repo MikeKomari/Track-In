@@ -6,6 +6,7 @@ import { QueryClient } from "./query-client.js";
 import "./pages/inventory/init.js";
 
 import "./pages/transaction/init.js";
+import "./pages/transaction/form.js";
 
 import "./pages/users/init.js";
 import "./pages/users/update-user.js";

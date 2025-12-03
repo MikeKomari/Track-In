@@ -73,8 +73,8 @@ class TransactionController extends Controller
         if (request("mode") == "search") {
             // dd($request->input("type"));
             return redirect()
-                ->route("transaction-form", ["search" => $request->input("search"), "type" => $request->input("type")])
-                ->withInput($request->all());
+            ->route("transaction-form", ["search" => $request->input("search"), "type" => $request->input("type")])
+            ->withInput($request->all());
         }
 
         $validProducts = Product::pluck('code')->values()->all();
