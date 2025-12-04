@@ -1,6 +1,6 @@
 @extends('layout.index')
 
-@section('title', 'Transaction - Track-In')
+@section('title', __('messages.transactions.title') . ' - Track-In')
 
 @section('content')
     @include('pages.transactions.details.index')

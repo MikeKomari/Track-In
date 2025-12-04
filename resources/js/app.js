@@ -1,12 +1,22 @@
 import "./bootstrap";
 import "./layout/index.js";
 import "./preloader.js";
+import { QueryClient } from "./query-client.js";
+
+import "./pages/inventory/init.js";
+
+import "./pages/transaction/init.js";
+
+import "./pages/users/init.js";
+import "./pages/users/update-user.js";
+import "./pages/users/create-user.js";
+import "./pages/users/update-image.js";
+
 import "./components/window.js";
 import "./components/dropdown.js";
 import "./components/input-dropdown.js";
-import "./pages/inventory.js";
-import "./pages/transactions.js";
+import "./components/role-selector.js";
 import "./components/delete-modal.js";
-import { QueryClient } from "./query-client.js";
+import { Toast } from "./components/toast.js";
 
-setTimeout(() => QueryClient.publish("transaction"), 0);
+// setTimeout(() => QueryClient.publish("users"), 0);

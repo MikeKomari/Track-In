@@ -12,10 +12,8 @@
         <script defer src="https://code.iconify.design/iconify-icon/2.0.0/iconify-icon.min.js"></script>
     </head>
 
-    <body >
-        <div class="bg-white h-screen max-h-screen grid grid-cols-2 max-md:grid-cols-1 w-full px-8 py-10 rounded-xl">
-            @yield('content')
-        </div>
+    <body class="bg-white min-h-screen max-h-screen grid grid-cols-2 max-md:grid-cols-1 w-full px-8 py-10 rounded-xl">
+          @yield('content')
     </body>
 
 </html>

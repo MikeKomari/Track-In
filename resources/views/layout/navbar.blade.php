@@ -10,14 +10,13 @@
             'route' => 'transactions',
             'icon' => 'mdi:cart-outline',
         ],
-        // [
-        //     'display' => 'User',
-        //     'route' => 'users',
-        //     'icon' => 'mdi:user-outline',
-        // ],
+        [
+            'display' => 'User',
+            'route' => 'users',
+            'icon' => 'mdi:user-outline',
+        ],
     ];
 
-     
 @endphp
 <nav class="px-2 navbar relative flex flex-col">
     <div class="pt-4 pb-1">
@@ -36,6 +35,10 @@
         @foreach ($navigations as $nav)
             @php
                 $isSelected = request()->is($nav['route'] . '*');
+
+                if (Auth::user()->role !== 'admin' && $nav['display'] === 'User') {
+                    continue;
+                }
             @endphp
             <a @class([
                 'flex items-center justify-start gap-2 p-2 overflow-hidden group rounded-md',
@@ -50,7 +53,11 @@
         @endforeach
     </ul>
 
-    <x-language-switcher/>          
+    <x-language-switcher />
+    <form method="POST" action="{{ route('logout') }}">
+        @csrf
+        <button type="submit">logout</button>
+    </form>
 
     <div
         class="mb-3 flex gap-2 items-center group-data-[navbar-state=open]:hover:bg-secondary/10 group-data-[navbar-state=closed]:hover:opacity-75 animate-cta p-1 rounded-lg">

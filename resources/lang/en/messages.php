@@ -1,74 +1,159 @@
 <?php
+
 return [
-    'nav.inventory' => 'Inventory',
-    'nav.transaction' => 'Transaction',
+    // Navbar
+    'nav' => [
+        'inventory' => 'Inventory',
+        'transaction' => 'Transaction',
+    ],
 
-    'inventory.title' => 'Inventory',
-    'inventory.create' => 'Create Product',
-    'inventory.category.material' => 'Material',
-    'inventory.category.chemicals' => 'Chemicals',
-    'inventory.category.raw_parts' => 'Raw Parts',
-    'inventory.category.consumables' => 'Consumables',
+    // Inventory
+    'inventory' => [
+        'title' => 'Inventory',
 
-    'inventory.col.code' => 'Code',
-    'inventory.col.type' => 'Type',
-    'inventory.col.description' => 'Description',
-    'inventory.col.size' => 'Size',
-    'inventory.col.brand' => 'Brand',
-    'inventory.col.price' => 'Price',
-    'inventory.col.stock' => 'Stock',
+        'category' => [
+            'material' => 'Material',
+            'chemicals' => 'Chemicals',
+            'raw_parts' => 'Raw Parts',
+            'consumables' => 'Consumables',
+        ],
 
-    'inventory.detail.title' => 'Product Detail',
-    'inventory.detail.commercial' => 'Commercial',
-    'inventory.detail.price' => 'Price',
-    'inventory.detail.unit' => 'Unit',
-    'inventory.detail.stock' => 'Stock',
-    'inventory.detail.desc' => 'More data regarding the product',
-    'inventory.detail.product_desc' => 'Description',
-    'inventory.detail.size' => 'Size',
-    'inventory.detail.hs_code' => 'HS Code',
-    'inventory.detail.origin' => 'Origin',
-    'inventory.detail.sch' => 'SCH',
-    'inventory.detail.material_family' => 'Material Family',
-    'inventory.detail.need_lartas' => 'Need LARTAS',
-    'inventory.detail.need_sni' => 'Need SNI',
+        'col' => [
+            'code' => 'Code',
+            'type' => 'Type',
+            'description' => 'Description',
+            'size' => 'Size',
+            'brand' => 'Brand',
+            'price' => 'Price',
+            'stock' => 'Stock',
+        ],
 
-    'transactions.title' => 'Transactions',
-    'transactions.col.code' => 'Code',
-    'transactions.col.seller' => 'Seller',
-    'transactions.col.buyer' => 'Buyer',
-    'transactions.col.date' => 'Date',
-    'transactions.col.status' => 'Status',
+        'detail' => [
+            'title' => 'Product Detail',
+            'commercial' => 'Commercial',
+            'price' => 'Price',
+            'unit' => 'Unit',
+            'stock' => 'Stock',
+            'desc' => 'More data regarding the product',
+            'brand' => 'Brand',
+            'product_desc' => 'Description',
+            'size' => 'Size',
+            'hs_code' => 'HS Code',
+            'origin' => 'Origin',
+            'sch' => 'SCH',
+            'material_family' => 'Material Family',
+            'need_lartas' => 'Need LARTAS',
+            'need_sni' => 'Need SNI',
+        ],
 
-    'login.title' => 'Login',
-    'login.header' => 'Welcome Back!',
-    'register.header_desc' => 'Enter your Track-In account credentials to use the app!',
-    'login.input.email' => 'Email',
-    'login.input.pass' => 'Password',
-    'login.input.remember_me' => 'Remember Me',
-    'register.input.submit' => 'Submit',
-    'register.input.has_acc' => 'Do not have an account?',
-    'register.input.login' => 'Register',
-    'register.footer' => '© Copyright Track-In 2025. All Rights Reserved',
-    
-    'register.title' => 'Register',
-    'register.header' => 'Register Account',
-    'register.header_desc' => 'Register to Track-In to view products and transactions. Tinggal di Track-In aja!',
-    'register.input.full_name' => 'Full Name',
-    'register.input.email' => 'Email',
-    'register.input.pass' => 'Password',
-    'register.input.remember_me' => 'Remember Me',
-    'register.input.submit' => 'Submit',
-    'register.input.has_acc' => 'Has an account?',
-    'register.input.login' => 'Login',
-    'register.footer' => '© Copyright Track-In 2025. All Rights Reserved',
+        'create' => [
+            'title' => 'Create Product',
+            'header' => 'Create Product',
+            'desc' => 'Enter data of the product to add it into Inventory.',
 
-    'utils.search' => 'Search...',
-    'utils.filter' => 'Select Filter',
-    'utils.stock.low' => 'Stock Low',
-    'utils.stock.medium' => 'Stock Medium',
-    'utils.stock.high' => 'Stock High',
-    'utils.add' => 'Add',
-    'utils.page' => 'Page',
-    'utils.of' => 'of',
+            'identity' => [
+                'h2' => 'Product Identity',
+                'h3' => 'Choose Product Type',
+                'h3_desc' => 'Some products have different details to be inputted.',
+
+                'type' => [
+                    'consumables' => 'Consumables',
+                    'chemicals' => 'Chemicals',
+                    'raw_parts' => 'Raw Parts',
+                    'materials' => 'Materials',
+                ],
+
+                'input' => [
+                    'desc' => 'Product Description',
+                ],
+            ],
+
+            'specification' => [
+              'h3' => 'Technical Specification',
+              'h3_desc' => 'Input technical informations regarding the product such as type, unit, category, etc.',
+              'additional' => 'You can choose more than one',
+              'size' => 'Size',
+              'unit' => 'Unit',
+              'material' => 'Material'
+            ],
+
+            'commercial' => [
+              'h3' => 'Product Commercial',
+              'h3_desc' => 'Input commercial informations regarding the product.',
+              'input' => [
+                'price' => 'Price per Unit',
+                'stock' => 'Stock',
+              ],
+            ],
+
+            'submit' => 'Add Product'
+        ],
+
+        'edit' => [
+          'h3' => "Update Product",
+          'h3_desc' => "Update product information in inventory.",
+          'submit' => 'Save Changes'
+        ]
+    ],
+
+    // Transactions
+    'transactions' => [
+        'title' => 'Transactions',
+
+        'col' => [
+            'code' => 'Code',
+            'seller' => 'Seller',
+            'buyer' => 'Buyer',
+            'date' => 'Date',
+            'status' => 'Status',
+        ],
+    ],
+
+    // Login
+    'login' => [
+        'title' => 'Login',
+        'header' => 'Welcome Back!',
+        'header_desc' => 'Enter your Track-In account credentials to use the app!',
+        'input' => [
+            'email' => 'Email',
+            'pass' => 'Password',
+            'remember_me' => 'Remember Me',
+            'submit' => 'Submit',
+            'has_acc' => 'Do not have an account?',
+            'login' => 'Register',
+        ],
+        'footer' => '© Copyright Track-In 2025. All Rights Reserved',
+    ],
+
+    // Register
+    'register' => [
+        'title' => 'Register',
+        'header' => 'Register Account',
+        'header_desc' => 'Register to Track-In to view products and transactions. Tinggal di Track-In aja!',
+        'input' => [
+            'full_name' => 'Full Name',
+            'email' => 'Email',
+            'pass' => 'Password',
+            'remember_me' => 'Remember Me',
+            'submit' => 'Submit',
+            'has_acc' => 'Has an account?',
+            'login' => 'Login',
+        ],
+        'footer' => '© Copyright Track-In 2025. All Rights Reserved',
+    ],
+
+    // Utils
+    'utils' => [
+        'search' => 'Search...',
+        'filter' => 'Select Filter',
+        'stock' => [
+            'low' => 'Stock Low',
+            'medium' => 'Stock Medium',
+            'ready' => 'Stock Ready',
+        ],
+        'add' => 'Add',
+        'page' => 'Page',
+        'of' => 'of',
+    ],
+
 ];

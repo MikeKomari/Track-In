@@ -26,7 +26,12 @@
                 style="grid-template-columns: {{ $gridColumnSizes }};">
                 <di class="flex items-center text-sm px-4">{{ $transaction['code'] }}</di>
                 <div class="flex items-center gap-4">
-                    <div class="w-10 aspect-square bg-background rounded-full"></div>
+                    @if ($transaction->user->profile_picture_path)
+                        <img src="{{ $transaction->user->profile_picture_path }}"
+                            class="w-10 aspect-square bg-background rounded-full object-cover"></img>
+                    @else
+                        <div class="w-10 aspect-square bg-background rounded-full"></div>
+                    @endif
                     <div>
                         <p class="text-primary">{{ $transaction['user']['name'] }}</p>
                         <p class="text-sm text-secondary">{{ $transaction['user']['email'] }}</p>

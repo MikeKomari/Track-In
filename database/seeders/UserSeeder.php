@@ -16,19 +16,6 @@ class UserSeeder extends Seeder
      */
     public function run(): void
     {
-        //
-        $faker = Faker::create();
-
-        for($i = 0; $i<5; $i++){
-          User::insert([
-            'name' => $faker->name(),
-            'email' => $faker->unique()->safeEmail(),
-            'profilePictureURL' => 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnGgOv6jUgOe01LCJTP0k95hSGOFVTBph4Zg&s',
-            'password' => Hash::make('password'),
-            'role' => $faker->randomElement(['admin', 'staff', 'user']),
-            'remember_token' => Str::random(10),
-            'created_at' => $faker->date(),
-          ]);
-        }
+        User::factory()->count(50)->create();
     }
 }

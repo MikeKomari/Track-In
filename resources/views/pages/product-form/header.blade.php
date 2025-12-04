@@ -3,10 +3,11 @@
         <iconify-icon icon="tabler:chevron-left" width="20"></iconify-icon>
     </a>
     <div>
-        <h2 class="font-semibold text-2xl">Tambahkan Barang
+        <h2 class="font-semibold text-2xl">
+            {{ $isEdit ? __('messages.inventory.edit.h3') : __('messages.inventory.create.title') }}
         </h2>
         <p class="text-secondary font-normal tracking-normal text-sm mt-0.5">
-        Masukan data untuk menambahkan barang ke dalam inventaris
+            {{ $isEdit ? __('messages.inventory.edit.h3_desc') : __('messages.inventory.create.desc') }}
         </p>
     </div>
 </div>

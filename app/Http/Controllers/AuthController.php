@@ -12,7 +12,8 @@ class AuthController extends Controller
     //
 
     public function getLogin(){
-      return view('pages.Login.index');
+
+      return Auth::check() ? redirect('/inventory') : view('pages.Login.index');
     }
 
     public function getRegister(){
@@ -25,7 +26,7 @@ class AuthController extends Controller
       $request->validate([
           'fullName' => 'required|min:3|max:40',
           'email' => ['required', 'unique:users'],
-          'pass' => 'required|min:6|confirmed|max:12',
+          'pass' => 'required|min:6|max:12',
       ], [
           'fullName.required' => 'Please enter your full name!',
           'email.required' => 'Please enter your email!',
@@ -33,13 +34,13 @@ class AuthController extends Controller
           'pass.required' => 'Please enter your password!',
       ]);
 
-      $remember = $request->has('remember');
-
       $user = User::create([
-          'name' => $request->name,
+          'name' => $request->fullName,
           'email' => $request->email,
-          'password' => Hash::make($request->password),
-          'phone' => $request->phone
+          'profile_picture_path' => '',
+          'password' => Hash::make($request->pass),
+          'phone' => '',
+          'role' => 'user'
       ]);
 
       Auth::login($user);
@@ -48,24 +49,29 @@ class AuthController extends Controller
     }
 
      function login(Request $request){
-        $credentials = $request->validate([
-            'email' => 'required',
-            'pass' => 'required',
-        ]);
+      $request->validate([
+          'email' => 'required',
+          'pass' => 'required|min:6|max:12',
+      ], [
+          'email.required' => 'Please enter your email!',
+          'pass.required' => 'Please enter your password!',
+      ]);
 
-        if (Auth::attempt($credentials)) {
+        $remember = $request->has('rememberMe'); 
+        $credentials = ['email' => $request->email, 'password' => $request->pass];
+
+        if (Auth::attempt($credentials, $remember)) { 
             $request->session()->regenerate();
-            return redirect()->intended('/inventory')->with('success', 'You are logged in successfully.');
+            return redirect()->intended('/inventory')->with('success', 'Logged in successfully.');
         }
-        else{
-            return redirect()->back()->withErrors(['login_error' => 'Email or password is incorrect.']);
-        }
+
+        return back()->withErrors(['error' => 'Email or password is incorrect.']);
     }
 
     function logout(){
         Auth::logout();
         request()->session()->invalidate();
         request()->session()->regenerateToken();
-        return redirect('/')->with('success', 'You have logged out successfully.'); 
+        return redirect('/login')->with('success', 'You have logged out successfully.'); 
     }
 }

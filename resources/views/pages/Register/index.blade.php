@@ -1,6 +1,6 @@
 @extends("layout.auth-layout")
 
-@section('title', 'Register - Track-In')
+@section('title', __('messages.register.title') . ' - Track-In')
 
 @section("content")
 
@@ -17,11 +17,11 @@
 
       <form method="POST" action="{{route('create.user')}}" class="flex flex-col px-20 justify-center max-md:px-0 max-md:w-full">
         @csrf
-        <p class="text-3xl font-bold">Daftar Akun</p>
-        <p class="my-3 text-secondary">Daftar Track-In untuk melihat daftar produk dan transaksi anda. Tinggal di Track-In aja!</p>
+        <p class="text-3xl font-bold">{{__('messages.register.header')}}</p>
+        <p class="my-3 text-secondary">{{__('messages.register.header_desc')}}</p>
 
         <x-input
-            label="Full Name"
+            label="{{__('messages.register.input.full_name')}}"
             placeholder="Elysia Bellamy"
             class="mt-1 w-full"
             name="fullName"
@@ -29,7 +29,7 @@
             :error="$errors->first('fullName')"
         />
         <x-input
-            label="Email"
+            label="{{__('messages.register.input.email')}}"
             placeholder="elysiabellamy@gmail.com"
             class="mt-1 w-full"
             name="email"
@@ -37,7 +37,7 @@
             :error="$errors->first('email')"
         />
         <x-input
-            label="Password"
+            label="{{__('messages.register.input.pass')}}"
             placeholder="********"
             class="mt-1 w-full"
             name="pass"
@@ -48,16 +48,16 @@
         
         <div class="flex items-center gap-2 my-4">
           <input type="checkbox" class="w-6 h-6 rounded-lg bg-input-background" name="rememberMe" id="rememberMe">
-          <label for="rememberMe">Ingat Saya</label>
+          <label for="rememberMe">{{__('messages.register.input.remember_me')}}</label>
         </div>
 
-        <button type="submit" class="bg-accent w-full rounded-xl text-white py-4 animate-cta">Daftar</button>
+        <button type="submit" class="bg-accent w-full rounded-xl text-white py-4 animate-cta">{{__('messages.register.input.submit')}}</button>
       
       
-        <p class="text-secondary my-8 text-center">Sudah memiliki akun? <a href="/login"><span class="text-accent underline">Masuk</span></a></p>
+        <p class="text-secondary my-8 text-center">{{__('messages.register.input.has_acc')}} <a href="/login"><span class="text-accent underline">{{__('messages.register.input.login')}}</span></a></p>
       </form>
 
-      <p class="text-center text-tertiary">© Copyright Track-In 2025. All Rights Reserved</p>
+      <p class="text-center text-tertiary">{{__('messages.register.footer')}}</p>
     </div>
 
     <div class="w-full flex justify-center items-center max-md:hidden">

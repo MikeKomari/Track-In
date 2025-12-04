@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -21,7 +23,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'profilePictureURL',
+        'profile_picture_path',
         'created_at',
         'role',
     ];
@@ -49,7 +51,30 @@ class User extends Authenticatable
         ];
     }
 
+    // Handles multi column search
+    private $SEARCH_COLUMNS = ["name", "email"];
+    public function scopeSearch($query, $term) {
+        $query->where(function($q) use ($term) {
+            foreach($this->SEARCH_COLUMNS as $column) {
+                $q->orWhere($column, "like", "%$term%");
+            };
+        });
+    }
+
+    public function scopedSearch($query, $search) {
+        // return
+    }
+
     public function transactions(){
       return $this->hasMany(Transaction::class, 'user_id', 'id');
+    }
+
+    protected function profilePicturePath(): Attribute {
+        return Attribute::make(
+            get: function ($value) {
+                if (str_contains($value, 'picsum')) return $value;
+                return asset('storage/' . $value);
+            }
+        );
     }
 }
