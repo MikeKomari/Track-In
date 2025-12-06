@@ -230,6 +230,13 @@ return [
         'footer' => '© Copyright Track-In 2025. All Rights Reserved',
     ],
 
+    'deleteModal' => [
+      'title' => 'Are you sure?',
+      'desc' => 'Are you sure you want to delete this data? This action is permanent and cannot be undone.',
+      'confirm' => 'Yes, I am sure',
+      'decline' => 'No, Cancel',
+    ],
+
     // Utils
     'utils' => [
         'search' => 'Search...',

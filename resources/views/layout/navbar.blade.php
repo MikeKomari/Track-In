@@ -59,7 +59,7 @@
         <button type="submit">logout</button>
     </form>
 
-    <div class="relative z-20" data-profile-popup-component>
+    <div class="relative z-20" data-profile-popup-component data-state="closed">
 
         {{-- Trigger Button --}}
         <div class="mb-3 flex gap-2 items-center cursor-pointer 
@@ -68,24 +68,25 @@
                animate-cta p-1 rounded-lg"
             data-profile-popup-trigger>
             <img class="rounded-full max-w-10 max-h-10 w-full min-w-9 transition-all aspect-square border-white border"
-                src="https://images.unsplash.com/profile-1619559142670-fcd58dab16a9image?w=150&dpr=2&crop=faces&bg=%23fff&h=150&auto=format&fit=crop&q=60&ixlib=rb-4.1.0"
+                src="{{ Auth::user()->profile_image_url ?? 'https://static.vecteezy.com/system/resources/thumbnails/022/014/184/small/user-icon-member-login-isolated-vector.jpg' }}"
                 alt="User Avatar">
 
             <div class="group-data-[navbar-state=closed]:opacity-0 transition duration-100">
-                <p class="text-sm text-primary">John Doe</p>
-                <p class="text-xs text-secondary">Johndoe@mail.com</p>
+                <p class="text-sm text-primary">{{ Auth::user()->name }}</p>
+                <p class="text-xs text-secondary">{{ Auth::user()->email }}</p>
             </div>
         </div>
 
         {{-- Popup Dropdown --}}
-        <div class="absolute right-0 top-14 border bg-white shadow-soft rounded-lg w-44 overflow-hidden
-               group-data-[state=open]:opacity-100 group-data-[state=open]:visible
-               group-data-[state=open]:translate-y-0 group-data-[state=open]:scale-100
-               opacity-0 invisible -translate-y-4 scale-95 transition-all duration-200"
+        <div class="absolute right-0 bottom-full mb-2 border bg-white shadow-soft rounded-lg w-56 p-2
+                    invisible -translate-y-2 scale-95 transition-all duration-200
+                    group-data-[state=open]:opacity-100 group-data-[state=open]:visible 
+                    group-data-[state=open]:translate-y-0 group-data-[state=open]:scale-100 z-9999"
             data-profile-popup-content>
-            <a href="/profile" class="block px-4 py-2 text-sm hover:bg-secondary/10 text-primary">
+
+            {{-- <a href="/profile" class="block px-4 py-2 text-sm hover:bg-secondary/10 text-primary">
                 Profile
-            </a>
+            </a> --}}
 
             <form method="POST" action="/logout">
                 @csrf

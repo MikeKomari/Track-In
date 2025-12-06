@@ -155,7 +155,7 @@ return [
           ],
       ],
       
-'user' => [
+      'user' => [
           'title' => 'Manajemen User',
 
           'col' => [
@@ -215,6 +215,12 @@ return [
         'footer' => '© Hak Cipta Track-In 2025. Seluruh Hak Cipta Dilindungi.',
     ],
 
+    'deleteModal' => [
+      'title' => 'Apakah Anda Yakin?',
+      'desc' => 'Apakah anda yakin ingin menghapus data ini? Tindakan ini bersifat permanen dan tidak dapat dipulihkan.',
+      'confirm' => 'Ya, Saya Yakin',
+      'decline' => 'Tidak, Batalkan',
+    ],
 
     'utils' => [
         'search' => 'Cari...',
