@@ -1,4 +1,4 @@
-<div class="flex justify-between items-center p-6">
+<div class="flex md:flex-col gap-0 md:gap-6 justify-between items-center md:items-start p-6">
     <div>
         <h5 class="font-medium text-base">Pilih Produk</h5>
         <p class="text-secondary font-regular text-sm mt-0.5">Pilih produk yang ingin dimasukkan ke dalam transaksi</p>

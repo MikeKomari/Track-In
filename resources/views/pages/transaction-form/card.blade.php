@@ -35,7 +35,7 @@
                 type="number"
                 input-class="quantity-input text-center h-14"
                 placeholder="0"
-                :value="$value"
+                :value="old('products.' . $item->code, $value)"
                 oninput="typeQuantity(this)"
             />
 
@@ -51,7 +51,7 @@
         </div>
     </div>
 
-    <input type="hidden" name="products[{{ $item->code }}]" class="hidden-qty" value="{{ $value }}">
+    <input type="hidden" name="products[{{ $item->code }}]" class="hidden-qty" value="{{ old('products.' . $item->code, $value) }}">
     <input type="hidden" class="hidden-stock" value="{{ $item->quantity }}">
 </div>
 
