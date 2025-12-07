@@ -4,6 +4,7 @@
     <p class="text-secondary mt-0.5">
         Beberapa produk memiliki detail pengisian data yang berbeda
     </p>
+
     @include('components.type-selector', [
         'selected' => $product?->type,
         'error' => $errors->first('type'),

@@ -153,10 +153,10 @@ class TransactionController extends Controller
             return $this->error("The tarnsaction with the id $id, does not exist", 404);
         }
 
-        if ($transaction->status !== 'pending') {
-            return redirect()->back()
-                ->with('error', 'Transaksi hanya dapat diedit jika status masih pending.');
-        }
+        // if ($transaction->status !== 'pending') {
+        //     return redirect()->back()
+        //         ->with('error', 'Transaksi hanya dapat diedit jika status masih pending.');
+        // }
 
         $selectedItems = $transaction->items
             ->pluck('quantity', 'product_code')
@@ -192,10 +192,10 @@ class TransactionController extends Controller
             return back()->withErrors(["transaction" => "Transaksi tidak ditemukan"]);
         }
 
-        if ($transaction->status !== 'pending') {
-            return redirect()->back()
-                ->with('error', 'Transaksi hanya dapat diedit jika status masih pending.');
-        }
+        // if ($transaction->status !== 'pending') {
+        //     return redirect()->back()
+        //         ->with('error', 'Transaksi hanya dapat diedit jika status masih pending.');
+        // }
 
         $selectedItems = $transaction->items
             ->pluck('quantity', 'product_code')

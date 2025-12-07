@@ -1,5 +1,5 @@
 <div class="flex gap-4 items-center border-b py-5 px-8">
-    <a href="{{ route('inventory') }}" class="rounded-full bg-background w-10 h-10 flex items-center justify-center">
+    <a href="{{ route('inventory') }}" class="rounded-full bg-background w-10 h-10 aspect-square flex items-center justify-center">
         <iconify-icon icon="tabler:chevron-left" width="20"></iconify-icon>
     </a>
     <div>

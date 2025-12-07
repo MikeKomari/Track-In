@@ -15,7 +15,7 @@
             {{ $item->description }}
         </p>
 
-        <div class="grid grid-cols-[2fr_1.5fr] gap-2 [&>p]:text-secondary [&>p>span]:text-primary py-2 gap-y-3 [&>p>span]:ml-4">
+        <div class="grid grid-cols-[2fr_1.5fr] md:grid-cols-1 gap-2 [&>p]:text-secondary [&>p>span]:text-primary py-2 gap-y-3 [&>p>span]:ml-4">
             <p class="truncate">Stock  <span class="stock-display">{{ $item->quantity }}</span></p>
             <p>Ukuran  <span>{{ $item->size }}</span></p>
             <p class="truncate">Harga  <span>@formatToRupiah($item->price)</span></p>

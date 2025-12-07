@@ -20,7 +20,7 @@
             : [])
 @endphp
 
-<ul class="rounded-md grid grid-cols-2 gap-4 mt-3 shadow-soft">
+<ul class="rounded-md grid grid-cols-2 sm:grid-cols-1 gap-4 mt-3 shadow-soft">
     @foreach ($options as $key => $option)
         @php
             $isSelected = in_array($key, $selected);
