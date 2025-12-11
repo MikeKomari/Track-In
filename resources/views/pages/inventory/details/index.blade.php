@@ -3,7 +3,7 @@
         <iconify-icon icon="material-symbols:close-rounded" data-window-close
             class="text-lg text-secondary hover:opacity-50 animate-cta"></iconify-icon>
         <p class="">
-            Detail Produk
+            {{__('messages.inventory.detail.title')}}
         </p>
     </div>
     <div class="p-7 pt-5 pb-0 overflow-y-auto flex-1" data-product-detail-container></div>

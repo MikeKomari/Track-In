@@ -1,17 +1,17 @@
 @php
     $general = [
-        ['icon' => 'material-symbols:description-outline', 'title' => 'Deskripsi', 'value' => $product->description],
-        ['icon' => 'radix-icons:size', 'title' => 'Ukuran', 'value' => $product->size],
-        ['icon' => 'nimbus:barcode', 'title' => 'HS Code', 'value' => $product->hs_code],
-        ['icon' => 'akar-icons:location', 'title' => 'Negara Asal', 'value' => $product->country_origin],
-        ['icon' => 'charm:container', 'title' => 'SCH', 'value' => $product->sch],
-        ['icon' => 'gg:list', 'title' => 'Material Family', 'value' => $product->material_family],
+        ['icon' => 'material-symbols:description-outline', 'title' => __('messages.inventory.detail.product_desc'), 'value' => $product->description],
+        ['icon' => 'radix-icons:size', 'title' => __('messages.inventory.detail.size'), 'value' => $product->size],
+        ['icon' => 'nimbus:barcode', 'title' => __('messages.inventory.detail.hs_code'), 'value' => $product->hs_code],
+        ['icon' => 'akar-icons:location', 'title' => __('messages.inventory.detail.origin'), 'value' => $product->country_origin],
+        ['icon' => 'charm:container', 'title' => __('messages.inventory.detail.sch'), 'value' => $product->sch],
+        ['icon' => 'gg:list', 'title' => __('messages.inventory.detail.material_family'), 'value' => $product->material_family],
     ];
 @endphp
 <div class="mt-5">
     <div class="pb-5 border-b">
-        <h2 class="text-lg font-medium mb-0.5">Detil Produk</h2>
-        <p class="text-sm text-secondary">Data - data detail terkait produk</p>
+        <h2 class="text-lg font-medium mb-0.5">{{__('messages.inventory.detail.title')}}</h2>
+        <p class="text-sm text-secondary">{{__('messages.inventory.detail.desc')}}</p>
     </div>
     <div class="py-6 flex flex-col gap-4">
         @foreach ($general as $item)
@@ -30,7 +30,7 @@
             ])>
                 <div class="flex items-center gap-2">
                     <iconify-icon class="text-2xl text-primary" icon="mingcute:paper-line"></iconify-icon>
-                    <p class="text-primary text-sm">Butuh Lartas</p>
+                    <p class="text-primary text-sm">{{__('messages.inventory.detail.need_lartas')}}</p>
                 </div>
                 <div class="rounded-full border p-1.5">
                     <div @class([
@@ -45,7 +45,7 @@
             ])>
                 <div class="flex items-center gap-2">
                     <iconify-icon class="text-2xl text-primary" icon="charm:notes-tick"></iconify-icon>
-                    <p class="text-primary text-sm">Butuh SNI</p>
+                    <p class="text-primary text-sm">{{__('messages.inventory.detail.need_sni')}}</p>
                 </div>
                 <div class="rounded-full border p-1.5">
                     <div @class([

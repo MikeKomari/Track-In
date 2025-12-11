@@ -1,12 +1,12 @@
 @php
     $items = [
-        ['key' => 'Kode', 'size' => 'minmax(6rem,auto)'],
-        ['key' => 'Jenis', 'size' => 'minmax(10rem,auto)'],
-        ['key' => 'Deskripsi', 'size' => 'minmax(15rem,1fr)'],
-        ['key' => 'Ukuran', 'size' => 'minmax(8rem,auto)'],
-        ['key' => 'Brand', 'size' => 'minmax(8rem,auto)'],
-        ['key' => 'Harga', 'size' => 'minmax(8rem,auto)'],
-        ['key' => 'Stock', 'size' => 'minmax(5rem,auto)'],
+        ['key' => __('messages.inventory.col.code'), 'size' => 'minmax(6rem,auto)'],
+        ['key' => __('messages.inventory.col.type'), 'size' => 'minmax(10rem,auto)'],
+        ['key' => __('messages.inventory.col.description'), 'size' => 'minmax(15rem,1fr)'],
+        ['key' => __('messages.inventory.col.size'), 'size' => 'minmax(8rem,auto)'],
+        ['key' => __('messages.inventory.col.brand'), 'size' => 'minmax(8rem,auto)'],
+        ['key' => __('messages.inventory.col.price'), 'size' => 'minmax(8rem,auto)'],
+        ['key' => __('messages.inventory.col.stock'), 'size' => 'minmax(5rem,auto)'],
         ['key' => '', 'size' => 'minmax(5rem,auto)'],
     ];
     $gridColumnSizes = array_reduce($items, function ($acc, $item) {
@@ -54,8 +54,8 @@
             href={{ $products->previousPageUrl() }}>
             <iconify-icon icon="solar:arrow-up-linear" class="text-primary"></iconify-icon>
         </a>
-        <div class="text-sm text-secondary tracking-wide">Page <span
-                class="text-primary">{{ $products->currentPage() }}</span> of
+        <div class="text-sm text-secondary tracking-wide">{{__('messages.utils.page')}} <span
+                class="text-primary">{{ $products->currentPage() }}</span> {{__('messages.utils.of')}}
             {{ $products->lastPage() }}</div>
         <a class="hover:bg-secondary/10 animate-cta border rotate-90 text-lg w-7.5 h-7.5 flex items-center justify-center rounded-md bg-white text-secondary shadow-soft"
             href={{ $products->nextPageUrl() }}>
