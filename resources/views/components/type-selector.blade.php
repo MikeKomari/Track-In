@@ -14,7 +14,7 @@
     $selected = old('type', request('type', $selected ?? null));
 @endphp
 
-<ul class="border bg-input-background rounded-md grid grid-cols-2 p-4 gap-3 mt-4 shadow-soft">
+<ul class="border bg-input-background rounded-md grid grid-cols-2 sm:grid-cols-1 p-4 gap-3 mt-4 shadow-soft">
     @foreach ($types as $type)
         @php
             $isSelected = $selected === $type;
@@ -39,12 +39,16 @@
                 <iconify-icon icon="{{ $icon }}" width="20" height="20" class="text-accent"></iconify-icon>
             </div>
 
-            <p class="font-medium text-sm">{{ $type }}</p>
+            <div class="relative flex flex-row sm:flex-col justify-between w-full sm:gap-1">
+                <p class="font-medium text-sm whitespace-nowrap">{{ $type }}</p>
 
-            <p
-                class="selected-badge text-white bg-accent rounded-full px-2 text-xs ml-auto transition {{ $isSelected ? 'opacity-100' : 'opacity-0' }}">
-                Terpilih
-            </p>
+                <p
+                    class="selected-badge absolute right-0 sm:left-auto mt-1
+        text-white bg-accent rounded-full px-2 text-xs transition
+        {{ $isSelected ? 'opacity-100' : 'opacity-0' }}">
+    Terpilih
+                </p>
+            </div>
         </a>
     @endforeach
 </ul>

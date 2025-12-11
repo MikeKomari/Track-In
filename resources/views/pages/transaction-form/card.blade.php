@@ -12,8 +12,9 @@
         <p class="block text-primary leading-[175%] line-clamp-2">
             {{ $item->description }}
         </p>
+
         <div
-            class="grid grid-cols-[2fr_1.5fr] gap-2 [&>p]:text-secondary [&>p>span]:text-primary py-2 gap-y-3 [&>p>span]:ml-4">
+            class="grid grid-cols-[2fr_1.5fr] md:grid-cols-1 gap-2 [&>p]:text-secondary [&>p>span]:text-primary py-2 gap-y-3 [&>p>span]:ml-4">
             <p class="truncate">Stock <span class="stock-display">{{ $item->quantity }}</span></p>
             <p>Ukuran <span>{{ $item->size }}</span></p>
             <p class="truncate">Harga <span>@formatToRupiah($item->price)</span></p>
@@ -27,12 +28,12 @@
                 -
             </button>
 
-            <x-input type="number" input-class="quantity-input text-center h-14" placeholder="0" :value="$value"
+            <x-input type="number" input-class="quantity-input text-center h-14" placeholder="0" :value="old('products.' . $item->code, $value)"
                 oninput="typeQuantity(this)" />
 
 
             <button type="button"
-                class="flex items-center justify-center h-14 w-14 text-3xl bg-white border border-gray-200 rounded-sm shadow-soft flex-shrink-0 cursor-pointer"
+                class="flex items-center justify-center h-14 w-14 text-3xl bg-white border border-gray-200 rounded-sm shadow-soft shrink-0 cursor-pointer"
                 onclick="incrementQty(this)">
                 +
             </button>
@@ -40,7 +41,8 @@
         </div>
     </div>
 
-    <input type="hidden" name="products[{{ $item->code }}]" class="hidden-qty" value="{{ $value }}">
+    <input type="hidden" name="products[{{ $item->code }}]" class="hidden-qty"
+        value="{{ old('products.' . $item->code, $value) }}">
     <input type="hidden" class="hidden-stock" value="{{ $item->quantity }}">
 </div>
 
