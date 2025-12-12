@@ -8,10 +8,12 @@
             <x-status-badge variant="{{ $transaction->status }}"></x-status-badge>
         </div>
         <div class="flex items-center gap-3">
-            <a href={{ route('transaction-edit', ['id' => $transaction->id]) }}
-                class="hover:border-secondary hover:*:text-primary animate-cta p-2 w-fit border shadow-soft rounded-md flex items-center justify-center aspect-square animate-cta">
-                <iconify-icon icon="tabler:edit" class="text-xl text-secondary animate-cta"></iconify-icon>
-            </a>
+            @if ($transaction->status === 'pending')
+                <a href="{{ route('transaction-edit', ['id' => $transaction->id]) }}"
+                    class="hover:border-secondary hover:*:text-primary animate-cta p-2 w-fit border shadow-soft rounded-md flex items-center justify-center aspect-square animate-cta">
+                    <iconify-icon icon="tabler:edit" class="text-xl text-secondary animate-cta"></iconify-icon>
+                </a>
+            @endif
             <div data-delete-button data-action={{ route('delete.transaction', $transaction->id) }}
                 class="hover:border-secondary hover:*:text-red animate-cta p-2 w-fit border shadow-soft rounded-md flex items-center justify-center aspect-square animate-cta">
                 <iconify-icon icon="material-symbols:delete-outline"

@@ -5,20 +5,33 @@
 
 @php
     $inventoryTypes = [
-        'materials' => 'icon-park-outline:ad-product',
-        'chemicals' => 'solar:flame-bold',
-        'raw-parts' => 'ri:wrench-line',
-        'consumables' => 'mingcute:paper-line',
+        'materials' => [
+            'icon' => 'icon-park-outline:ad-product',
+            'label' => __('messages.transactions.create.information.type.materials'),
+        ],
+        'chemicals' => [
+            'icon' => 'solar:flame-bold',
+            'label' => __('messages.transactions.create.information.type.chemicals'),
+        ],
+        'raw-parts' => [
+            'icon' => 'ri:wrench-line',
+            'label' => __('messages.transactions.create.information.type.raw_parts'),
+        ],
+        'consumables' => [
+            'icon' => 'mingcute:paper-line',
+            'label' => __('messages.transactions.create.information.type.consumables'),
+        ],
     ];
 
     $selected = old('type', request('type', $selected ?? null));
 @endphp
 
-<ul class="border bg-input-background rounded-md grid grid-cols-2 p-4 gap-3 mt-4 shadow-soft">
+<ul class="border bg-input-background rounded-md grid grid-cols-2 sm:grid-cols-1 p-4 gap-3 mt-4 shadow-soft">
     @foreach ($types as $type)
         @php
             $isSelected = $selected === $type;
-            $icon = $inventoryTypes[$type];
+            $icon = $inventoryTypes[$type]['icon'];
+            $label = $inventoryTypes[$type]['label'];
         @endphp
 
         <a class="type-option flex items-center gap-2 bg-white px-3 py-2 rounded-sm border shadow-soft transition cursor-pointer
@@ -39,12 +52,14 @@
                 <iconify-icon icon="{{ $icon }}" width="20" height="20" class="text-accent"></iconify-icon>
             </div>
 
-            <p class="font-medium text-sm">{{ $type }}</p>
+            <div class="relative flex flex-row sm:flex-col justify-between w-full sm:gap-1">
+                <p class="font-medium text-sm whitespace-nowrap">{{ $label }}</p>
 
-            <p
-                class="selected-badge text-white bg-accent rounded-full px-2 text-xs ml-auto transition {{ $isSelected ? 'opacity-100' : 'opacity-0' }}">
-                Terpilih
-            </p>
+                <p
+                    class="selected-badge text-white bg-accent rounded-full px-2 text-xs ml-auto transition {{ $isSelected ? 'opacity-100' : 'opacity-0' }}">
+                    {{ __('messages.utils.chosen') }}
+                </p>
+            </div>
         </a>
     @endforeach
 </ul>

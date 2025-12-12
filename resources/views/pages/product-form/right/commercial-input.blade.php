@@ -1,8 +1,8 @@
 <div class="flex flex-col gap-4">
-    <x-input label="Harga Satuan" placeholder="Rp 90.000" class="mt-1" name="price" :value="old('price', $product->price ?? '')"
-        :error="$errors->first('price')" />
+    <x-input label="{{ __('messages.inventory.create.commercial.input.price') }}" placeholder="Rp 90.000" class="mt-1"
+        name="price" :value="old('price', $product->price ?? '')" :error="$errors->first('price')" />
     <div>
-        <p class="text-sm mb-2.5">Stock</p>
+        <p class="text-sm mb-2.5">{{ __('messages.inventory.create.commercial.input.stock') }}</p>
         <div class="flex gap-4">
             <x-input type="number" name="quantity" placeholder="0" :value="old('quantity', $product->quantity ?? '')" :error="$errors->first('quantity')" />
             <button type="button"

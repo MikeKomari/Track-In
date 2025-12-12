@@ -9,22 +9,19 @@
                     <iconify-icon icon="material-symbols:warning-rounded"
                         class="text-red text-6xl max-md:text-4xl"></iconify-icon>
                 </div>
-                <h1 class="text-2xl max-md:text-xl">Apakah Anda Yakin?</h1>
-                <p class="mb-6 text-secondary max-w-[500px] leading-relaxed mt-3 text-center max-md:text-[12px]">Apakah
-                    anda
-                    yakin ingin
-                    menghapus data ini? Tindakan ini bersifat permanen dan tidak dapat dipulihkan.</p>
+                <h1 class="text-2xl max-md:text-xl">{{ __('messages.deleteModal.title') }}</h1>
+                <p class="mb-6 text-secondary max-w-[500px] leading-relaxed mt-3 text-center max-md:text-[12px]">
+                    {{ __('messages.deleteModal.desc') }}</p>
                 <div class="w-full max-md:grid-cols-1  mt-4 grid grid-cols-2 gap-4">
                     <button data-delete-modal-decline
                         class="shadow-soft animate-cta bg-background rounded-lg py-3 px-4 animate-cta hover:opacity-75">
-                        Tidak, Batalkan
+                        {{ __('messages.deleteModal.decline') }}
                     </button>
                     <form data-delete-modal-form method="POST" class="w-full">
                         @csrf
                         @method('DELETE')
                         <button data-delete-modal-accept
-                            class="animate-cta py-3 px-4 bg-red text-white rounded-lg shadow-[0_0_16px_1px_rgba(255,17,17,0.3)] hover:opacity-75 w-full">Ya,
-                            Saya Yakin</button>
+                            class="animate-cta py-3 px-4 bg-red text-white rounded-lg shadow-[0_0_16px_1px_rgba(255,17,17,0.3)] hover:opacity-75 w-full">{{ __('messages.deleteModal.confirm') }}</button>
                     </form>
                 </div>
             </div>

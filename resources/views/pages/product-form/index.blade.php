@@ -1,5 +1,7 @@
 @extends('layout.index')
 
+@section('title', 'Create Product - Track-In')
+
 @section('content')
     @include('pages.product-form.header')
     <form method="POST" action="{{ $isEdit ? route('update.product', $product->code) : route('create.product') }}">

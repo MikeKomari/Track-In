@@ -1,11 +1,11 @@
 @php
     $options = [
         'lartas_required' => [
-            'label' => 'Butuh Lartas',
+            'label' => __('messages.inventory.detail.need_lartas'),
             'icon' => 'mingcute:paper-line',
         ],
         'sni_required' => [
-            'label' => 'Butuh SNI',
+            'label' => __('messages.inventory.detail.need_sni'),
             'icon' => 'charm:notes-tick',
         ],
     ];
@@ -13,21 +13,22 @@
     $selected = old('requirement')
         ? explode(',', old('requirement'))
         : ($isEdit
-            ? array_keys(array_filter([
-                'lartas_required' => $product->lartas_required,
-                'sni_required' => $product->sni_required,
-            ]))
-            : [])
+            ? array_keys(
+                array_filter([
+                    'lartas_required' => $product->lartas_required,
+                    'sni_required' => $product->sni_required,
+                ]),
+            )
+            : []);
 @endphp
 
-<ul class="rounded-md grid grid-cols-2 gap-4 mt-3 shadow-soft">
+<ul class="rounded-md grid grid-cols-2 sm:grid-cols-1 gap-4 mt-3 shadow-soft">
     @foreach ($options as $key => $option)
         @php
             $isSelected = in_array($key, $selected);
         @endphp
 
-        <li
-            class="option flex items-center gap-2 bg-white px-3 py-2 rounded-sm border shadow-soft transition cursor-pointer
+        <li class="option flex items-center gap-2 bg-white px-3 py-2 rounded-sm border shadow-soft transition cursor-pointer
                    {{ $isSelected ? 'border-gray-200' : 'hover:border-accent/50 border-gray-200' }}"
             onclick="
                 const input = document.getElementById('requirement-input');
@@ -58,8 +59,7 @@
                 }
 
                 input.value = values.join(',');
-            "
-        >
+            ">
             <div class="p-1.5 rounded-full bg-accent/5 w-10 h-10 flex items-center justify-center">
                 <iconify-icon icon="{{ $option['icon'] }}" width="20" height="20" class="text-accent"></iconify-icon>
             </div>
@@ -68,7 +68,9 @@
 
             <div class="ml-auto flex items-center justify-center">
                 <div class="w-6 h-6 border rounded-full flex items-center justify-center border-gray-300">
-                    <div class="radio-circle-inner w-3 h-3 bg-accent rounded-full transition duration-150 {{ $isSelected ? 'opacity-100 initial-selected' : 'opacity-0' }}"></div>
+                    <div
+                        class="radio-circle-inner w-3 h-3 bg-accent rounded-full transition duration-150 {{ $isSelected ? 'opacity-100 initial-selected' : 'opacity-0' }}">
+                    </div>
 
                 </div>
             </div>
@@ -79,11 +81,12 @@
 <input type="hidden" name="requirement" id="requirement-input" value="{{ implode(',', $selected) }}">
 
 
-@if($errors->has('requirement'))
+@if ($errors->has('requirement'))
     <div class="flex items-center gap-2 mt-2 text-red-400">
-        <svg class="fill-red-400" xmlns="http://www.w3.org/2000/svg" width="20" height="20"
-             viewBox="0 0 24 24">
-            <path d="M11.953 2C6.465 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.493 2 11.953 2zM12 20c-4.411 0-8-3.589-8-8s3.567-8 7.953-8C16.391 4 20 7.589 20 12s-3.589 8-8 8z"></path>
+        <svg class="fill-red-400" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+            <path
+                d="M11.953 2C6.465 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.493 2 11.953 2zM12 20c-4.411 0-8-3.589-8-8s3.567-8 7.953-8C16.391 4 20 7.589 20 12s-3.589 8-8 8z">
+            </path>
             <path d="M11 7h2v7h-2zm0 8h2v2h-2z"></path>
         </svg>
         <p class="text-sm font-normal">{{ $errors->first('requirement') }}</p>
