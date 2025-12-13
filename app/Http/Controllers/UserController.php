@@ -43,6 +43,7 @@ class UserController extends Controller
     }
 
     public function updateUser(UpdateUserRequest $request, $id) {
+        // dd($request);
         $validatedData = $request->validated();
         $user = User::find($id)->update($validatedData);
         return $this->success($user, "Successfully updated the user with id $id");

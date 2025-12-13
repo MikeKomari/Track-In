@@ -35,7 +35,6 @@ Route::middleware([isAdmin::class])->group(function () {
   Route::post('/products', [ProductController::class, 'createProduct'])->name('create.product');
   Route::delete('/products/{code}', [ProductController::class, 'deleteProduct'])->name('delete.product');
   Route::put('/product/{code}', [ProductController::class, 'updateProduct'])->name('update.product');
-  Route::put('/transaction/{id}', [TransactionController::class, 'updateTransaction'])->name('update.transaction');
 });
 
 Route::middleware([isLoggedIn::class])->group(function() {
@@ -52,7 +51,8 @@ Route::middleware([isLoggedIn::class])->group(function() {
   // Action Routes -> Perform mutations (delete, update, create)
   Route::post('/transaction', [TransactionController::class, 'createTransaction'])->name('create.transaction');
   Route::delete('/transactions/{id}', [TransactionController::class, 'deleteTransaction'])->name('delete.transaction');
-
+  
+  Route::put('/transaction/{id}', [TransactionController::class, 'updateTransaction'])->name('update.transaction');
 });
 
 Route::get('/lang/{locale}', function ($locale) {

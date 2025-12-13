@@ -10,6 +10,10 @@
     'type' => null,
 ])
 
+@php
+    $isPassword = $type === 'password';
+@endphp
+
 <div {{ $attributes->merge(['class' => 'w-full']) }}>
     @if ($label)
         <label class="pb-2 text-primary text-sm font-normal block">
@@ -17,16 +21,26 @@
         </label>
     @endif
 
-    <div data-state class="shadow-soft">
+    <div data-state @class([
+        'shadow-soft relative',
+        'flex items-center justify-between' => $isPassword,
+    ])>
         <input @class([
             'border border-border bg-highlight rounded-sm w-full px-5 py-4 text-primary disabled:text-slate-500 transition duration-75 placeholder:text-paragraph text-sm focus:ring-accent focus:ring-2 outline-none disabled:cursor-not-allowed placeholder:font-normal font-normal bg-input-background data-[state=error]:border-red-500',
             'border-red-400' => $error,
+            'pr-12' => $isPassword,
             $inputClass,
         ]) placeholder="{{ $placeholder }}"
             @if ($type) type="{{ $type }}" @endif
             @if ($name) name="{{ $name }}" @endif
             @if ($value) value="{{ $value }}" @endif
             @if ($numeric) inputmode="numeric" @endif>
+
+        @if ($isPassword)
+            <button type="button" class="absolute inset-y-0 right-3 flex items-center" data-password-toggle>
+                <iconify-icon icon="mdi:eye-outline"></iconify-icon>
+            </button>
+        @endif
     </div>
 
     @if (!$error && $hint)
