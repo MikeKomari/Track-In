@@ -4,7 +4,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\UserController;
-use App\Http\Middleware\AuthMiddleware;
+// use App\Http\Middleware\AuthMiddleware;
 use App\Http\Middleware\isAdmin;
 use App\Http\Middleware\isLoggedIn;
 use Illuminate\Support\Facades\Route;

@@ -157,7 +157,7 @@ class TransactionController extends Controller
         $transaction = Transaction::find($id);
 
         if (!$transaction) {
-            return $this->error("The tarnsaction with the id $id, does not exist", 404);
+            return $this->error("The transaction with the id $id, does not exist", 404);
         }
 
         // if ($transaction->status !== 'pending') {
