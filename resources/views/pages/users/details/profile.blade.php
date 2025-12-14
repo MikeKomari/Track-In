@@ -2,7 +2,7 @@
     <img class="w-full h-36 object-cover" src={{ asset('images/user-default-banner.png') }} alt="">
     @include('pages.users.details.profile-picture')
     <div data-delete-button data-action={{ route('delete.users', $user->id) }}
-        class="hover:border-secondary hover:*:text-red animate-cta p-2 w-fit border shadow-soft rounded-md flex items-center justify-center aspect-square animate-cta ml-auto mr-4 mt-4">
+        class="hover:border-secondary hover:*:text-red animate-cta p-2 w-fit border shadow-soft rounded-md flex items-center justify-center absolute aspect-square animate-cta ml-auto mr-4 right-0 translate-y-4">
         <iconify-icon icon="material-symbols:delete-outline" class="animate-cta text-xl text-secondary"></iconify-icon>
     </div>
 </div>

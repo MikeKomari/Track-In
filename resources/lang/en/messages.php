@@ -49,7 +49,7 @@ return [
         'create' => [
             'title' => 'Create Product',
             'header' => 'Create Product',
-            'desc' => 'Enter data of the product to add it into Inventory.',
+            'desc' => 'Input data of the product to add it into Inventory.',
 
             'identity' => [
                 'h2' => 'Product Identity',
@@ -122,7 +122,7 @@ return [
         'create' => [
             'title' => 'Create Transaction',
             'header' => 'Create Transaction',
-            'desc' => 'Enter data of the product to create a new Transaction.',
+            'desc' => 'Input data of the product to create a new Transaction.',
 
             'information' => [
                 'h2' => 'Transaction Information',
@@ -178,7 +178,7 @@ return [
 
         'create' => [
             'title' => 'Create User',
-            'desc' => 'Enter data to add new user.',
+            'desc' => 'Input data to add new user.',
             'submit' => 'Create User'
           ],
 
@@ -192,7 +192,8 @@ return [
                 'email' => 'Email',
                 'phone' => 'Phone Number',
                 'role' => 'Role',
-                'submit' => "Save"
+                'submit' => "Save",
+                'password' => "Password"
             ],
         ],
     ],
@@ -201,7 +202,7 @@ return [
     'login' => [
         'title' => 'Login',
         'header' => 'Welcome Back!',
-        'header_desc' => 'Enter your Track-In account credentials to use the app!',
+        'header_desc' => 'Input your Track-In account credentials to use the app!',
         'input' => [
             'email' => 'Email',
             'pass' => 'Password',
@@ -217,7 +218,7 @@ return [
     'register' => [
         'title' => 'Register',
         'header' => 'Register Account',
-        'header_desc' => 'Register to Track-In to view products and transactions. Tinggal di Track-In aja!',
+        'header_desc' => 'Register to Track-In to view products and transactions.',
         'input' => [
             'full_name' => 'Full Name',
             'email' => 'Email',

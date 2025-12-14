@@ -143,6 +143,7 @@ return [
                       'company_name' => 'Nama Perusahaan',
                       'company_address' => 'Alamat Perusahaan',
                   ],
+
               ],
 
               'submit' => 'Selesaikan'
@@ -180,7 +181,8 @@ return [
                   'email' => 'Email',
                   'phone' => 'Nomor Telepon',
                   'role' => 'Peran',
-                  'submit' => 'Simpan'
+                  'submit' => 'Simpan',
+                  'password' => "Password"
               ],
           ],
       ],

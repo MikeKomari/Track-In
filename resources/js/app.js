@@ -3,6 +3,8 @@ import "./layout/index.js";
 import "./preloader.js";
 import { QueryClient } from "./query-client.js";
 
+import "./utils/passInput.js";
+
 import "./pages/inventory/init.js";
 
 import "./pages/transaction/init.js";
