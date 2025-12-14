@@ -27,7 +27,7 @@ Route::prefix("api")->group(function() {
     Route::post('/users/{id}/profile-picture', [UserController::class, 'updateProfilePicture']);
     Route::post('/users', [UserController::class, 'createUser']);
   });
-  
+
 Route::middleware([isAdmin::class])->group(function () {
   Route::get('/hiadmin', function() {
     return view('pages.tesadmin');
@@ -43,12 +43,14 @@ Route::middleware([isLoggedIn::class])->group(function() {
   Route::get('/inventory', [ProductController::class, 'getProducts'])->name('inventory');
   Route::get('/inventory/form', [ProductController::class, 'getProductForm'])->name('product-form');
   Route::get('/product/{code}', [ProductController::class, 'editProductForm'])->name('product-edit');
-  
+
   Route::get('/transactions', [TransactionController::class, 'getTransactions'])->name('transactions');
   Route::get('/transaction/form', [TransactionController::class, 'getTransactionForm'])->name('transaction-form');
   Route::get('/transaction/{id}', [TransactionController::class, 'editTransactionForm'])->name('transaction-edit');
+  Route::post('/transaction/{id}/status', [TransactionController::class, 'updateTransactionStatus'])->name('transaction-status-edit');
   Route::get('/users', [UserController::class, 'getUsers'])->name('users');
-  
+  Route::delete('/users/{id}', [UserController::class, 'deleteUser'])->name('delete.users');
+
   // Action Routes -> Perform mutations (delete, update, create)
   Route::post('/transaction', [TransactionController::class, 'createTransaction'])->name('create.transaction');
   Route::delete('/transactions/{id}', [TransactionController::class, 'deleteTransaction'])->name('delete.transaction');

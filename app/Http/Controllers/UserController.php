@@ -74,4 +74,9 @@ class UserController extends Controller
 
         return $this->success("", "Successfully updated avatar");
     }
+
+    public function deleteUser($id) {
+        User::findOrFail($id)->delete();
+        return back();
+    }
 }
